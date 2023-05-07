@@ -1,12 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import Name from './Name.js';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1> Hello World! </h1>
-      </header>
+    <div style={{
+      backgroundColor: '#1A1A1A',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start',
+      justifyContent: 'flex-start'
+    }}>
+      <Name />
     </div>
   );
 }
