@@ -54,6 +54,14 @@ export default function Bio(props){
             }}>
                 I'm currently looking for a software engineering internship.
             </p3>
+            <a href='mailto: brian@matzelle.co' style={{
+                paddingTop: '2vh',
+                color: '#005A43',
+                fontSize: '18px',
+                fontWeight: '350'
+            }}>
+                brian@matzelle.co
+            </a>
         </div>
     );
 }
