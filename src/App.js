@@ -1,9 +1,13 @@
 import Bio from './Bio.js';
 import Mascot from './Mascot.js';
-import {RemoveScrollBar} from 'react-remove-scroll-bar';
-import AnimatedCursor from "react-animated-cursor"
+import Projects from './Projects.js';
+import AnimatedCursor from "react-animated-cursor";
+import './App.css';
 
 function App() {
+  function scrollToProjects() {
+    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+  }
   return (
     <div style={{
       backgroundColor: '#1A1A1A',
@@ -15,7 +19,6 @@ function App() {
       alignItems: 'flex-start',
       justifyContent: 'flex-start',
     }}>
-      <RemoveScrollBar />
       <AnimatedCursor
         innerSize={10}
         outerSize={10}
@@ -33,6 +36,20 @@ function App() {
         <Bio />
         <Mascot />
       </div>
+      {/* <div className="scroll-down-arrow" style={{
+        alignSelf: 'center',
+        marginTop: 'auto',
+        marginBottom: '1rem',
+        color: '#005A43',
+        cursor: 'pointer',
+        fontSize: '3rem',
+      }} onClick={() => {
+        scrollToProjects();
+        setShowProjects(true);
+      }}>
+        &darr;
+      </div> */}
+      <Projects />
     </div>
   );
 }

@@ -1,0 +1,31 @@
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+  
+html {
+    scrollbar-width: none; /* For Firefox */
+}
+
+::-moz-selection {
+    background: #005A43;
+}
+::-webkit-selection {
+    background: #005A43;
+}
+::selection {
+    background: #005A43;
+}
+
+scroll-down-arrow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border: 2px solid #005A43;
+    border-radius: 50%;
+    animation: scroll-down 2s infinite;
+    cursor: pointer;
+}
