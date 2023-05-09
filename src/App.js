@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import Bio from './Bio.js';
 import Mascot from './Mascot.js';
 import Projects from './Projects.js';
@@ -5,9 +6,21 @@ import AnimatedCursor from "react-animated-cursor";
 import './App.css';
 
 function App() {
-  function scrollToProjects() {
-    document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
-  }
+  // track window width
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    if (windowWidth < 767) {
+      setIsMobile(true);
+    }
+    else if (windowWidth >= 767) {
+        setIsMobile(false);
+    }
+    return () => window.removeEventListener('resize', handleResize);
+  }, [windowWidth]);
   return (
     <div style={{
       backgroundColor: '#1A1A1A',
@@ -34,21 +47,9 @@ function App() {
         justifyContent: 'space-between',
       }}>
         <Bio />
-        <Mascot />
+        {/* Only show mascot if not on mobile */}
+        {!isMobile && <Mascot />}
       </div>
-      {/* <div className="scroll-down-arrow" style={{
-        alignSelf: 'center',
-        marginTop: 'auto',
-        marginBottom: '1rem',
-        color: '#005A43',
-        cursor: 'pointer',
-        fontSize: '3rem',
-      }} onClick={() => {
-        scrollToProjects();
-        setShowProjects(true);
-      }}>
-        &darr;
-      </div> */}
       <Projects />
     </div>
   );
