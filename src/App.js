@@ -22,7 +22,9 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, [windowWidth]);
   return (
-    <div style={{
+    <div 
+    className="safe-area-container"
+    style={{
       backgroundColor: '#1A1A1A',
       // minHeight: '100vh',
       height: '100vh',
