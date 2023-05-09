@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GitHubLogo from './assets/github-mark-white.svg';
 import LinkedInLogo from './assets/linkedin-white.png';
 
 export default function Bio(props){
+    const [hoverGitHub, setHoverGitHub] = useState(false);
+    const [hoverLinkedIn, setHoverLinkedIn] = useState(false);
     return (
         <div className='name-container' style={{
             display: 'flex',
@@ -64,7 +66,11 @@ export default function Bio(props){
             }}>
                 brian@matzelle.co
             </a>
-            <a href='https://github.com/brianmatzelle' style={{
+            <a 
+            href='https://github.com/brianmatzelle' 
+            onMouseEnter={() => setHoverGitHub(true)}
+            onMouseLeave={() => setHoverGitHub(false)}
+            style={{
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -73,7 +79,7 @@ export default function Bio(props){
                 color: '#005A43',
                 fontSize: '18px',
                 fontWeight: '350',
-                textDecoration: 'none'
+                textDecoration: (hoverGitHub ? 'underline' : 'none'),
             }}>
                 {/* Show GitHub logo svg from ./assets/github-mark-white.svg */}
                 <img src={GitHubLogo} alt='GitHub Logo' style={{
@@ -82,7 +88,11 @@ export default function Bio(props){
                 }}/>
                 GitHub
             </a>
-            <a href='https://www.linkedin.com/in/brianmatzelle/' style={{
+            <a 
+            href='https://www.linkedin.com/in/brianmatzelle/' 
+            onMouseEnter={() => setHoverLinkedIn(true)}
+            onMouseLeave={() => setHoverLinkedIn(false)}
+            style={{
                 display: 'flex',
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -91,7 +101,7 @@ export default function Bio(props){
                 color: '#005A43',
                 fontSize: '18px',
                 fontWeight: '350',
-                textDecoration: 'none'
+                textDecoration: (hoverLinkedIn ? 'underline' : 'none'),
             }}>
                 {/* Show GitHub logo svg from ./assets/github-mark-white.svg */}
                 <img src={LinkedInLogo} alt='LinkedIn Logo' style={{

@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Projects({ showProjects }) {
-    // const height = showProjects ? '100vh' : '0vh';
+    const [hoverChat, setHoverChat] = useState(false);
+    const [hoverLendaHand, setHoverLendaHand] = useState(false);
+    const [hoverAudioSynthesizer, setHoverAudioSynthesizer] = useState(false);
+
+    const expandProject = (project) => {
+      console.log(project);
+    }
     return (
     <div id="projects" style={{ 
         width: '100vw', 
@@ -16,22 +22,32 @@ function Projects({ showProjects }) {
       }}>Projects</h2>
 
       {/* Chat.tv */}
-      <a href='https://github.com/brianmatzelle/Chat.tv/releases/tag/alpha' style={{
-        color: '#005A43',
-        fontSize: '20px',
-        fontWeight: '350',
-        textDecoration: 'none',
-        paddingTop: '1vh',
+      <div>
+        <a
+        onMouseOver={() => {expandProject('Chat.tv'); setHoverChat(true);}}
+        onMouseLeave={() => {setHoverChat(false);}} 
+        href='https://github.com/brianmatzelle/Chat.tv/releases/tag/alpha' 
+        style={{
+          color: '#005A43',
+          fontSize: '20px',
+          fontWeight: '350',
+          textDecoration: (hoverChat ? 'underline' : 'none'),
+          paddingTop: '1vh',
         }}>- Chat.tv</a>
+      </div>
       {/* Chat.tv */}
 
       {/* LendaHand */}
       <div>
-          <a href='https://github.com/brianmatzelle/LendaHand' style={{
+          <a 
+          href='https://github.com/brianmatzelle/LendaHand' 
+          onMouseOver={() => {expandProject('LendaHand'); setHoverLendaHand(true);}}
+          onMouseLeave={() => {setHoverLendaHand(false);}}
+          style={{
               color: '#005A43',
               fontSize: '20px',
               fontWeight: '350',
-              textDecoration: 'none',
+              textDecoration: (hoverLendaHand ? 'underline' : 'none'),
               paddingTop: '1vh',
               paddingRight: '1vw',
           }}>- LendaHand</a>
@@ -47,13 +63,17 @@ function Projects({ showProjects }) {
 
       {/* Audio Synthesizer */}
       <div>
-        <a href='https://github.com/brianmatzelle/AudioSynth' style={{
-            color: '#005A43',
-            fontSize: '20px',
-            fontWeight: '350',
-            textDecoration: 'none',
-            paddingTop: '1vh',
-            paddingRight: '1vw',
+        <a 
+        href='https://github.com/brianmatzelle/AudioSynth' 
+        onMouseOver={() => {expandProject('Audio Synthesizer'); setHoverAudioSynthesizer(true);}}
+        onMouseLeave={() => {setHoverAudioSynthesizer(false);}}
+        style={{
+          color: '#005A43',
+          fontSize: '20px',
+          fontWeight: '350',
+          textDecoration: (hoverAudioSynthesizer ? 'underline' : 'none'),
+          paddingTop: '1vh',
+          paddingRight: '1vw',
         }}>- Audio Synthesizer</a>
         <span style={{
             color: 'white',
