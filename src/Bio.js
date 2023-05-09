@@ -24,7 +24,7 @@ export default function Bio(props){
                 fontSize: '24px',
                 fontWeight: '350'
             }}>
-                Hi, I'm a Computer Science senior at Binghamton University.
+                Welcome, I'm a Computer Science senior at Binghamton University.
             </p1>
             <p2 style={{
                 paddingTop: '2vh',
@@ -32,7 +32,7 @@ export default function Bio(props){
                 fontSize: '24px',
                 fontWeight: '350'
             }}>
-                I have experience with full-stack web development, 
+                I have experience with full-stack development, 
             </p2>
             <p2 style={{
                 color: 'white',
