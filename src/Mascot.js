@@ -21,6 +21,7 @@ const BlenderScene = () => {
   useEffect(() => {
     if (groupRef.current) {
       groupRef.current.rotation.y = 0;  // Adjust these values for rotation
+      groupRef.current.rotation.x = .4;  // Adjust these values for rotation
     }
   }, []);
   
@@ -28,7 +29,7 @@ const BlenderScene = () => {
   useEffect(() => {
     if (groupRef.current) {
       groupRef.current.position.set(0, -1.2, 0); // Adjust these values for position
-      groupRef.current.scale.set(.1, .1, .1); // Adjust these values for scale
+      groupRef.current.scale.set(.09, .09, .09); // Adjust these values for scale
     }
   }, [groupRef]);
 
