@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import GitHubLogo from './assets/github-mark-white.svg';
-import LinkedInLogo from './assets/linkedin-white.png';
+import GitHub from './socials/GitHub';
+import LinkedIn from './socials/LinkedIn';
+import SoundCloud from './socials/SoundCloud';
 
 export default function Bio() {
-  const [hoverGitHub, setHoverGitHub] = useState(false);
-  const [hoverLinkedIn, setHoverLinkedIn] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
   const paraFontSize = isMobile ? '16px' : '24px'; // 24px on desktop, 18px on mobile (767px)
   const linkFontSize = isMobile ? '14px' : '18px'; // 18px on desktop, 14px on mobile (767px)
-  
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
@@ -101,61 +100,11 @@ export default function Bio() {
       >
         brian@matzelle.co
       </a>
-      <a
-        href="https://github.com/brianmatzelle"
-        onMouseEnter={() => setHoverGitHub(true)}
-        onMouseLeave={() => setHoverGitHub(false)}
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          paddingTop: '1vh',
-          color: '#005A43',
-          fontSize: linkFontSize,
-          fontWeight: '350',
-          textDecoration: hoverGitHub ? 'underline' : 'none',
-        }}
-      >
-        {/* Show GitHub logo svg from ./assets/github-mark-white.svg */}
-        <img
-          src={GitHubLogo}
-          alt="GitHub Logo"
-          style={{
-            height: '16px',
-            marginRight: '7px',
-          }}
-        />
-        GitHub
-      </a>
-      <a
-        href="https://www.linkedin.com/in/brianmatzelle/"
-        onMouseEnter={() => setHoverLinkedIn(true)}
-        onMouseLeave={() => setHoverLinkedIn(false)}
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          paddingTop: '.5vh',
-          color: '#005A43',
-          fontSize: linkFontSize,
-          fontWeight: '350',
-          textDecoration: hoverLinkedIn ? 'underline' : 'none',
-        }}
-      >
-        {/* Show LinkedIn logo svg from ./assets/linkedin-white.png */}
-        <img
-          src={LinkedInLogo}
-          alt="LinkedIn Logo"
-          style={{
-            height: '16px',
-            marginRight: '7px',
-            borderRadius: '20%',
-          }}
-        />
-        LinkedIn
-      </a>
+
+      <GitHub linkFontSize={linkFontSize} />
+      <LinkedIn linkFontSize={linkFontSize} />
+      <SoundCloud linkFontSize={linkFontSize} />
+
     </div>
   );
 }    
