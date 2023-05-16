@@ -30,7 +30,7 @@ function Projects({ showProjects }) {
     <div id="projects" style={{ 
         backgroundColor: '#1A1A1A',
         paddingLeft: '5vw',
-        paddingRight: (isMobile ? '15vw' : '0vw'), // 5vw on mobile, 0vw on desktop (767px)
+        paddingRight: (isMobile ? '15vw' : '5vw'), // 5vw on mobile, 0vw on desktop (767px)
     }}>
       <h2 style={{
         paddingTop: '2vh',
