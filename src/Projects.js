@@ -45,7 +45,7 @@ function Projects({ showProjects }) {
         <a
         onMouseOver={() => {expandProject('Chat.tv'); setHoverChat(true);}}
         onMouseLeave={() => {setHoverChat(false);}} 
-        href='https://github.com/brianmatzelle/Chat.tv/releases/tag/alpha' 
+        href='https://github.com/brianmatzelle/Chat.tv/releases' 
         style={{
           color: '#005A43',
           fontSize: projFontSize,
