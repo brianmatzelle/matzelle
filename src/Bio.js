@@ -103,7 +103,7 @@ export default function Bio() {
 
       <GitHub linkFontSize={linkFontSize} />
       <LinkedIn linkFontSize={linkFontSize} />
-      <SoundCloud linkFontSize={linkFontSize} />
+      {/* <SoundCloud linkFontSize={linkFontSize} /> */}
 
     </div>
   );
