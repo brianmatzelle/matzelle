@@ -74,7 +74,13 @@ const Controls = () => {
 
 export default function Mascot() {
   return (
-    <Canvas style={{ width: "40vw", height: "50vh", paddingLeft: '6vw' }}>
+    <Canvas 
+    style={{ 
+      width: "40vw", 
+      height: "50vh", 
+      paddingLeft: '6vw' 
+    }}
+    >
       <PerspectiveCamera
         position={[0, 0, 10]} // Adjust these values for camera position
         fov={75}

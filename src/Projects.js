@@ -4,6 +4,7 @@ function Projects({ showProjects }) {
     const [hoverChat, setHoverChat] = useState(false);
     const [hoverLendaHand, setHoverLendaHand] = useState(false);
     const [hoverAudioSynthesizer, setHoverAudioSynthesizer] = useState(false);
+    const [hoverReactorSuite, setHoverReactorSuite] = useState(false);
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [isMobile, setIsMobile] = useState(false);
 
@@ -40,7 +41,7 @@ function Projects({ showProjects }) {
       }}>Projects</h2>
 
       {/* Chat.tv */}
-      <div>
+      <div style={{marginBottom: '3px'}}>
         <a
         onMouseOver={() => {expandProject('Chat.tv'); setHoverChat(true);}}
         onMouseLeave={() => {setHoverChat(false);}} 
@@ -56,7 +57,7 @@ function Projects({ showProjects }) {
       {/* Chat.tv */}
 
       {/* LendaHand */}
-      <div>
+      <div style={{marginBottom: '3px'}}>
           <a 
           href='https://github.com/brianmatzelle/LendaHand' 
           onMouseOver={() => {expandProject('LendaHand'); setHoverLendaHand(true);}}
@@ -79,8 +80,34 @@ function Projects({ showProjects }) {
       </div>
       {/* LendaHand */}
 
+      {/* Reactor Suite */}
+      <div style={{marginBottom: '3px'}}>
+        <a
+        href='https://brianmatzelle.github.io/reactor-suite-js/'
+        onMouseOver={() => {expandProject('Reactor Suite'); setHoverReactorSuite(true);}}
+        onMouseLeave={() => {setHoverReactorSuite(false);}}
+        style={{
+          color: '#005A43',
+          fontSize: projFontSize,
+          fontWeight: '350',
+          textDecoration: (hoverReactorSuite ? 'underline' : 'none'),
+          paddingTop: '1vh',
+          paddingRight: '1vw',
+        }}>- Reactor Suite</a>
+        <span style={{
+            color: 'white',
+            fontSize: paraFontSize,
+            fontWeight: '350',
+            textDecoration: 'none',
+            paddingTop: '1vh',
+        }}>
+
+        </span>
+      </div>
+      {/* Reactor Suite */}
+
       {/* Audio Synthesizer */}
-      <div>
+      <div style={{marginBottom: '3px'}}>
         <a 
         href='https://github.com/brianmatzelle/AudioSynth' 
         onMouseOver={() => {expandProject('Audio Synthesizer'); setHoverAudioSynthesizer(true);}}
