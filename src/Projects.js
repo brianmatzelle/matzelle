@@ -1,27 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
-function Projects({ showProjects }) {
+function Projects({ isMobile }) {
     const [hoverChat, setHoverChat] = useState(false);
     const [hoverLendaHand, setHoverLendaHand] = useState(false);
     const [hoverAudioSynthesizer, setHoverAudioSynthesizer] = useState(false);
     const [hoverReactorSuite, setHoverReactorSuite] = useState(false);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const [isMobile, setIsMobile] = useState(false);
 
     const paraFontSize = isMobile ? '12px' : '16px';
     const projFontSize = isMobile ? '18px' : '20px';
-
-    useEffect(() => {
-      const handleResize = () => setWindowWidth(window.innerWidth);
-      window.addEventListener('resize', handleResize);
-      if (windowWidth < 767) {
-        setIsMobile(true);
-      }
-      else if (windowWidth >= 767) {
-          setIsMobile(false);
-      }
-      return () => window.removeEventListener('resize', handleResize);
-    }, [windowWidth]);
 
     const expandProject = (project) => {
       console.log(project);

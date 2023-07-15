@@ -3,6 +3,7 @@ import Bio from './Bio.js';
 import Mascot from './Mascot.js';
 import Projects from './Projects.js';
 import AnimatedCursor from "react-animated-cursor";
+import ChatDemo from './ChatDemo.js';
 import './App.css';
 
 function App() {
@@ -26,7 +27,6 @@ function App() {
     className="safe-area-container"
     style={{
       backgroundColor: '#1A1A1A',
-      // minHeight: '100vh',
       height: '100vh',
       width: '100vw',
       display: 'flex',
@@ -52,7 +52,20 @@ function App() {
         {/* Only show mascot if not on mobile */}
         {!isMobile && <Mascot />}
       </div>
-      <Projects />
+      <div
+      className='projects-and-chattv-demo'
+      style={{
+        display: 'flex',
+        flexDirection: (isMobile ? 'column' : 'row'),
+        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        width: '100vw',
+        // height: '100vh',
+      }}
+      >
+        <Projects isMobile={isMobile}/>
+        <ChatDemo isMobile={isMobile} />
+      </div>
     </div>
   );
 }
