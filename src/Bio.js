@@ -9,7 +9,6 @@ export default function Bio() {
   const [isMobile, setIsMobile] = useState(false);
   const paraFontSize = isMobile ? '16px' : '24px'; // 24px on desktop, 18px on mobile (767px)
   const linkFontSize = isMobile ? '14px' : '18px'; // 18px on desktop, 14px on mobile (767px)
-  const [hoverMedMetrix, setHoverMedMetrix] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -91,8 +90,6 @@ export default function Bio() {
         >
         I'm currently a data engineer intern @ {' '}
         <a 
-        onMouseOver={() => {setHoverMedMetrix(true);}}
-        onMouseLeave={() => {setHoverMedMetrix(false);}}
         href='https://www.med-metrix.com/'
         style={{
           textDecoration: 'none',
