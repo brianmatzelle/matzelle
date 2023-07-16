@@ -60,7 +60,6 @@ function App() {
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         width: '100vw',
-        // height: '100vh',
       }}
       >
         <Projects isMobile={isMobile}/>

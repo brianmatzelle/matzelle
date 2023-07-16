@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import GitHub from './socials/GitHub';
 import LinkedIn from './socials/LinkedIn';
 import SoundCloud from './socials/SoundCloud';
+import './Bio.css';
 
 export default function Bio() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
   const paraFontSize = isMobile ? '16px' : '24px'; // 24px on desktop, 18px on mobile (767px)
   const linkFontSize = isMobile ? '14px' : '18px'; // 18px on desktop, 14px on mobile (767px)
+  const [hoverMedMetrix, setHoverMedMetrix] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -60,7 +62,7 @@ export default function Bio() {
           fontWeight: '350',
         }}
       >
-        I have experience with full-stack development,
+        I have experience with data ELT pipelines,
       </p2>
       <p2
         style={{
@@ -86,8 +88,36 @@ export default function Bio() {
           color: 'white',
           fontSize: paraFontSize,
         }}
-      >
-        I'm currently looking for a software engineering internship.
+        >
+        I'm currently a data engineer intern @ {' '}
+        <a 
+        onMouseOver={() => {setHoverMedMetrix(true);}}
+        onMouseLeave={() => {setHoverMedMetrix(false);}}
+        href='https://www.med-metrix.com/'
+        style={{
+          textDecoration: 'none',
+        }}
+        >
+          <span
+          style={{
+            color: '#5656F0',
+          }}
+          >
+            Med
+          </span>
+          <span
+          style={{
+            color: 'white',
+          }}
+          >
+            -Metri
+            <span
+            className='x'
+            >
+            x
+            </span>
+          </span>
+        </a>
       </p3>
       <a
         href="mailto: brian@matzelle.co"

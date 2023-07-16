@@ -1,0 +1,9 @@
+.x {
+    display: inline-block;
+    margin: 0;
+    font-weight: 600;
+    background: linear-gradient(to right, #5656F0 50%, white 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
