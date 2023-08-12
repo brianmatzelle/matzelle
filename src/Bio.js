@@ -61,7 +61,7 @@ export default function Bio() {
           fontWeight: '350',
         }}
       >
-        I have experience with data ELT pipelines,
+        I have experience with artificial intelligence (LLMs/ML),
       </p2>
       <p2
         style={{
@@ -79,7 +79,7 @@ export default function Bio() {
           fontWeight: '350',
         }}
       >
-        and artificial intelligence.
+        and data ELT pipelines.
       </p2>
       <p3
         style={{
@@ -88,7 +88,7 @@ export default function Bio() {
           fontSize: paraFontSize,
         }}
         >
-        I'm currently a data engineer intern @ {' '}
+        I'm currently a machine learning engineer @ {' '}
         <a 
         href='https://www.med-metrix.com/'
         style={{
