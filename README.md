@@ -2,7 +2,7 @@ for testing:
 
 npm start
 
-for updating matzelle.co
+for updating matzelle.co:
 
 npm run deploy
 
