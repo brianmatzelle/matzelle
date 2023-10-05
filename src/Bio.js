@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import GitHub from './socials/GitHub';
 import LinkedIn from './socials/LinkedIn';
 import SoundCloud from './socials/SoundCloud';
+import Resume from './socials/Resume';
 import './Bio.css';
 
 export default function Bio() {
@@ -88,7 +89,7 @@ export default function Bio() {
           fontSize: paraFontSize,
         }}
         >
-        I'm currently a machine learning engineer @ {' '}
+        I'm currently a software engineer @ {' '}
         <a 
         href='https://www.med-metrix.com/'
         style={{
@@ -131,7 +132,7 @@ export default function Bio() {
       <GitHub linkFontSize={linkFontSize} />
       <LinkedIn linkFontSize={linkFontSize} />
       {/* <SoundCloud linkFontSize={linkFontSize} /> */}
-
+      <Resume linkFontSize={linkFontSize}/>
     </div>
   );
 }    
