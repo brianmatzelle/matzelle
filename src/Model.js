@@ -1,31 +1,90 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {QdrantClient} from '@qdrant/js-client-rest';
-import { finetunedModel, qdrantApiKey, qdrantEndpoint, openAIKey } from './docs/config';
+import { finetunedModel, qdrantEndpoint } from './docs/config';
 import OpenAI from "openai";
 
 const client = new QdrantClient({
     url: qdrantEndpoint,
-    apiKey: qdrantApiKey,
+    apiKey: process.env.REACT_APP_QDRANT_API_KEY,
 });
 
 
 const openai = new OpenAI({
     dangerouslyAllowBrowser: true,
-    apiKey: openAIKey,
+    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
 });
 
-function Responses({ msgResponses, style={} }) {
+function UserMessage({ message }) {
     return (
+        <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'flex-start',
+            justifyContent: 'flex-start',
+        }}>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
+                backgroundColor: '#005d40',
+                borderRadius: '10px',
+                padding: '10px',
+                marginRight: '10px',
+                color: 'white',
+            }}>
+                {message}
+            </div>
+        </div>
+    );
+}
+
+function BotMessage({ message }) {
+    return (
+        <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'flex-start',
+            justifyContent: 'flex-start',
+        }}>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
+                backgroundColor: '#343541',
+                borderRadius: '10px',
+                padding: '10px',
+                marginLeft: '10px',
+                color: 'white',
+            }}>
+                {message}
+            </div>
+        </div>
+    );
+}
+    
+function Responses({ msgResponses }) {
+    return (
+        <>
+        {msgResponses.length > 0 &&
         <div>
-            {msgResponses.map((msgResponse) => {
+            {console.log(msgResponses)}
+            {msgResponses.map((msgResponse, i) => {
                 return (
-                    <div>
-                        <p>{msgResponse.message}</p>
-                        <p>{msgResponse.response}</p>
+                    <div key={i}>
+                        {/* {msgResponse.role === 'user' && <UserMessage message={msgResponse.content} />}
+                        {msgResponse.role === 'assistant' && <BotMessage message={msgResponse.content} />} */}
+                        { msgResponse.role === 'user' ? 
+                        <UserMessage message={msgResponse.content} /> 
+                        : 
+                        (msgResponse.role === 'assistant' ? <BotMessage message={msgResponse.content}/> : <></> ) }
                     </div>
                 );
             })}
         </div>
+        }
+        </>
     );
 
 }
@@ -48,23 +107,29 @@ function randomPlaceholder() {
     return placeholders[randIdx];
 }
 
-// type msgResponse = {
-//     message: '',
-//     response: '',
-// }
+const getMessage = async (msgResponses, setMsgResponses, message) => {
+    setMsgResponses(prevMsgResponses => prevMsgResponses.concat({ "role": 'user', "content": message }));
+    const completion = await openai.chat.completions.create({
+        messages: msgResponses.concat({ "role": 'user', "content": message }),
+        model: finetunedModel,
+    });
+    console.log(completion);
+    const msgResponse = { "role": 'assistant', "content": completion.choices[0].message.content };
+    setMsgResponses(prevMsgResponses => prevMsgResponses.concat(msgResponse));
+}
 
 export default function LLM({ style={} }) {
     const [message, setMessage] = useState('');
-    const [msgResponses, setMsgResponses] = useState([]); // arr of type msgResponse
-    const [placeholder, setPlaceholder] = useState();
-
-    useEffect(() => {
-        setPlaceholder(randomPlaceholder());
-    }, []);
+    const [msgResponses, setMsgResponses] = useState([
+        {
+            "role": "system", "content": "You are an extension of Brian, only meant to answer career-related questions."
+        }
+    ]);
+    const [placeholder, setPlaceholder] = useState(randomPlaceholder());
 
     return (
         <div style={style}>
-        <Responses msgResponses={msgResponses} style={style}/>
+        <Responses msgResponses={msgResponses}/>
         <div className='input-and-send' style={{
             display: 'flex',
             flexDirection: 'row',
@@ -88,6 +153,17 @@ export default function LLM({ style={} }) {
                 backgroundColor: '#343541',
                 color: 'white',
             }} 
+            onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    // e.preventDefault();
+                    // e.stopPropagation();
+                    // e.nativeEvent.stopImmediatePropagation();
+                    getMessage(msgResponses, setMsgResponses, message);
+                    setPlaceholder('...');
+                    setMessage('');
+                    return false;
+                }
+            }}
             />
             <button 
             style={{
@@ -106,18 +182,11 @@ export default function LLM({ style={} }) {
                 e.target.style.color = '#343541';
             }}
             onClick={async () => {
-                  const completion = await openai.chat.completions.create({
-                    messages: [{"role": "system", "content": "You are a helpful assistant."},
-                        {"role": "user", "content": "Who won the world series in 2020?"},
-                        {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
-                        {"role": "user", "content": "Where was it played?"}],
-                    model: "gpt-3.5-turbo",
-                  });
-                
-                console.log(completion.choices[0].message);
-                setMsgResponses(completion.choices[0].message);
+                getMessage(msgResponses, setMsgResponses, message);
                 setPlaceholder('...');
-            }}>
+                setMessage('');
+            }}
+            >
                 ↑
             </button> 
         </div>

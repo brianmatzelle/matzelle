@@ -45,7 +45,7 @@ export default function Bio() {
       >
         Brian Matzelle
       </h1>
-      <p1
+      <span
         style={{
           color: 'white',
           fontSize: paraFontSize,
@@ -53,8 +53,8 @@ export default function Bio() {
         }}
       >
         Welcome, I'm a Computer Science senior at Binghamton University.
-      </p1>
-      <p2
+      </span>
+      <span
         style={{
           paddingTop: '2vh',
           color: 'white',
@@ -63,8 +63,8 @@ export default function Bio() {
         }}
       >
         I have experience with artificial intelligence (LLMs/ML),
-      </p2>
-      <p2
+      </span>
+      <span
         style={{
           color: 'white',
           fontSize: paraFontSize,
@@ -72,8 +72,8 @@ export default function Bio() {
         }}
       >
         mobile development (iOS and Android),
-      </p2>
-      <p2
+      </span>
+      <span
         style={{
           color: 'white',
           fontSize: paraFontSize,
@@ -81,8 +81,8 @@ export default function Bio() {
         }}
       >
         and data ELT pipelines.
-      </p2>
-      <p3
+      </span>
+      <span
         style={{
           paddingTop: '2vh',
           color: 'white',
@@ -116,7 +116,7 @@ export default function Bio() {
             </span>
           </span>
         </a>
-      </p3>
+      </span>
       <a
         href="mailto: brian@matzelle.co"
         style={{
