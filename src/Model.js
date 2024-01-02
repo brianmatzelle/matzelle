@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {QdrantClient} from '@qdrant/js-client-rest';
-import { finetunedModel, qdrantEndpoint } from './docs/config';
+import { qdrantEndpoint } from './docs/config';
 import axios from 'axios';
 
 const client = new QdrantClient({
