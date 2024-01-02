@@ -35,6 +35,7 @@ function App() {
       justifyContent: 'flex-start',
       minHeight: '100vh',
       height: '100%',
+      width: '100%',
     }}>
       <AnimatedCursor
         innerSize={10}
@@ -58,7 +59,7 @@ function App() {
       <Model style={{
         paddingLeft: '5vw',
         // paddingTop: '2vh',
-        // marginTop: '10vh',
+        marginTop: '1vh',
         paddingTop: chatInitiated ? '0px' : '3vh',
         width: isMobile ? '87vw' : '70vw', // 50vw on desktop, 80vw on mobile (767px)
         marginRight: isMobile ? '30vw' : '0vw', // 5vw on mobile, 0vw on desktop (767px)

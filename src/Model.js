@@ -1,17 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 import {QdrantClient} from '@qdrant/js-client-rest';
 import { finetunedModel, qdrantEndpoint } from './docs/config';
-import OpenAI from "openai";
+import axios from 'axios';
 
 const client = new QdrantClient({
     url: qdrantEndpoint,
     apiKey: process.env.REACT_APP_QDRANT_API_KEY,
-});
-
-
-const openai = new OpenAI({
-    dangerouslyAllowBrowser: true,
-    apiKey: process.env.REACT_APP_OPENAI_API_KEY,
 });
 
 function UserMessage({ message }) {
@@ -80,14 +74,14 @@ function Responses({ msgResponses }) {
         <div
         style={{
             paddingBottom: '10px',
-            maxHeight: '30vh',
+            // maxHeight: '30vh',
             overflowY: 'scroll',
             scrollbarWidth: 'none',
             // Firefox
             '&::-webkit-scrollbar': {
                 display: 'none',
             },
-            height: '30vh',
+            height: '40vh',
             borderLeft: '1px dotted #343541',
         }}
         >
@@ -119,7 +113,6 @@ function randomPlaceholder() {
         'How was this built?',
         'Who\'s your favorite programmer?',
         'What\'s your favorite programming language?',
-        'What do you value most in life?',
         'What are you currently up to?',
         'Are you working on any projects currently?',
     ];
@@ -129,13 +122,24 @@ function randomPlaceholder() {
 
 const getMessage = async (msgResponses, setMsgResponses, message) => {
     setMsgResponses(prevMsgResponses => prevMsgResponses.concat({ "role": 'user', "content": message }));
-    const completion = await openai.chat.completions.create({
+    // const completion = await openai.chat.completions.create({
+    //     messages: msgResponses.concat({ "role": 'user', "content": message }),
+    //     model: finetunedModel,
+    // });
+    axios.post('http://143.244.158.64:8200/chat', {
         messages: msgResponses.concat({ "role": 'user', "content": message }),
-        model: finetunedModel,
+    }).then((response) => {
+        const completion = response.data;
+        console.log(completion);
+        const msgResponse = { "role": 'assistant', "content": completion.choices[0].message.content };
+        setMsgResponses(prevMsgResponses => prevMsgResponses.concat(msgResponse));
+    })
+    .catch((error) => {
+        console.log(error);
     });
-    console.log(completion);
-    const msgResponse = { "role": 'assistant', "content": completion.choices[0].message.content };
-    setMsgResponses(prevMsgResponses => prevMsgResponses.concat(msgResponse));
+    // console.log(completion);
+    // const msgResponse = { "role": 'assistant', "content": completion.choices[0].message.content };
+    // setMsgResponses(prevMsgResponses => prevMsgResponses.concat(msgResponse));
 }
 
 export default function Model({ setChatInitiated, style={} }) {
@@ -220,7 +224,7 @@ export default function Model({ setChatInitiated, style={} }) {
             margin: 0,
             padding: 0,
             paddingLeft: '2px',
-        }}>warning this says stuff that isn't always true!</span>
+        }}>warning ~ this says stuff that isn't always true!</span>
         </div>
 
     );
