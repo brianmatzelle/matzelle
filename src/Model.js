@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import {QdrantClient} from '@qdrant/js-client-rest';
 import { finetunedModel, qdrantApiKey, qdrantEndpoint } from './docs/config';
+import OpenAI from "openai";
 
 const client = new QdrantClient({
     url: qdrantEndpoint,
     apiKey: qdrantApiKey,
 });
+
+
+const openai = new OpenAI();
 
 function Responses({ msgResponses, style={} }) {
     return (
@@ -99,11 +103,16 @@ export default function LLM({ style={} }) {
                 e.target.style.color = '#343541';
             }}
             onClick={async () => {
-                const response = await client.search(finetunedModel, {
-                    query: message,
-                    top: 5,
-                });
-                setMsgResponses(response.data.result);
+                  const completion = await openai.chat.completions.create({
+                    messages: [{"role": "system", "content": "You are a helpful assistant."},
+                        {"role": "user", "content": "Who won the world series in 2020?"},
+                        {"role": "assistant", "content": "The Los Angeles Dodgers won the World Series in 2020."},
+                        {"role": "user", "content": "Where was it played?"}],
+                    model: "gpt-3.5-turbo",
+                  });
+                
+                console.log(completion.choices[0].message);
+                setMsgResponses(completion.choices[0].message);
                 setPlaceholder('...');
             }}>
                 ↑
