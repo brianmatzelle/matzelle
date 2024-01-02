@@ -4,6 +4,7 @@
   "homepage": "https://matzelle.co",
   "private": true,
   "dependencies": {
+    "@qdrant/js-client-rest": "^1.7.0",
     "@react-three/drei": "^9.66.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

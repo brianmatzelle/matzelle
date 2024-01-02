@@ -4,6 +4,7 @@ import Mascot from './Mascot.js';
 import Projects from './Projects.js';
 import AnimatedCursor from "react-animated-cursor";
 import ChatDemo from './ChatDemo.js';
+import Model from './Model.js';
 import './App.css';
 
 function App() {
@@ -27,8 +28,6 @@ function App() {
     className="safe-area-container"
     style={{
       backgroundColor: '#1A1A1A',
-      height: '100vh',
-      width: '100vw',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'flex-start',
@@ -52,6 +51,15 @@ function App() {
         {/* Only show mascot if not on mobile */}
         {!isMobile && <Mascot />}
       </div>
+      
+      <Model style={{
+        paddingLeft: '5vw',
+        paddingTop: '2vh',
+        marginTop: '10vh',
+        width: isMobile ? '87vw' : '70vw', // 50vw on desktop, 80vw on mobile (767px)
+        marginRight: isMobile ? '30vw' : '0vw', // 5vw on mobile, 0vw on desktop (767px)
+      }} />
+
       <div
       className='projects-and-chattv-demo'
       style={{
@@ -64,7 +72,7 @@ function App() {
       >
         <Projects isMobile={isMobile}/>
         <ChatDemo isMobile={isMobile} />
-      </div>
+      </div>      
     </div>
   );
 }

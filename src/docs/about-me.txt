@@ -1,0 +1,87 @@
+---RESUME---
+Brian Matzelle
+Garden City, NY | (516) 413-2823 | bmatzel1@binghamton.edu | LinkedIn | Porfolio | GitHub
+EDUCATION
+Binghamton University, SUNY | Thomas J. Watson College of Engineering and Applied Science	
+Bachelor of Science in Computer Science	Expected May 2024
+Relevant Coursework: Data Structures & Algorithms, Design Patterns, Design & Analysis of Algorithms, Intro to Machine Learning, Programming Languages, Java OOP, Advanced Computer Architecture
+TECHNICAL SKILLS
+Languages: Python, Javascript,  C++, HTML, CSS, SQL, Rust, C,  Java, Go
+Frameworks & Software: AWS, Temporal, Google Cloud,  Node, React, NLP, spaCy, Microsoft SQL Server, React Native, Next.js, Expo, React Navigation, Git, Windows, MacOS, Linux, XGBoost, sklearn, LangChain, FAISS
+PROFESSIONAL EXPERIENCE
+Software Engineer Intern, Med-Metrix | Garden City, NY	June 2023 - December 2023
+Eliminated overnight model training after refactoring XGBoost classification model, increasing performance by 200%
+Preprocessed proprietary language data to finetune Falcon-7b large language model (LLM) to write insurance appeals
+Improved classification model accuracy from 80% to 90% by refining data preprocessing methods to heighten efficacy of written appeals and optimizing revenue potential
+Built data extraction pipelines with Airbyte’s CDK to ingest FHIR resources into S3 buckets via custom connectors, helping with database cloud migration
+Designed an LLM workflow with LangChain for accurate patient medical record retrieval, creating dedicated FAISS vector stores for each patient, and generating appeal documents
+Collaborated closely with legal experts to ensure AWS development environments remained HIPAA compliant when projects included Protected Health Information (PHI)
+Co-Founder & Software Engineer,  OnePolicy, LLC | Vestal, NY	November 2022 - May 2023
+Spearheaded Next.js website prototypes to validate complex technical solutions before full-scale implementation
+Demonstrated adept project management abilities through the effective use of agile methodologies, including task prioritization and meticulous project timeline monitoring, ensuring on-time delivery of high-quality website updates
+Cultivated strong project management skills by implementing agile methodologies, effectively prioritizing tasks, and closely Translated business requirements into precise React Native technical specifications, seamlessly integrating web-app functionalities and managing third-party API interactions
+Improved project execution by devising strategies, enhancing internal communication, and aligning company expectations
+Software Engineer Intern, TJ Russo Consultants | Islandia, NY	June 2022 - August 2022
+Collaborated with a team of 4 developers to build an NGINX based live-streaming service to improve client outreach
+Utilized Expo library to develop client live-streaming mobile app prototype, bettering the assessment of potential solutions
+Developed email templates that contributed to a 10% increase in client engagement.
+Optimized the local infrastructure and conducted hardware upgrades, resulting in reduced technical issues and outages, safeguarding time-sensitive revenue streams
+KEY PROJECTS
+LendaHand, HackBU 2023 Submission	 February 2023
+Won Best Civic Engagement Hack, sponsored by J.P. Morgan, for exceptional community impact
+Awarded Best Geo Hack, sponsored by CAE, for innovative geospatial application
+Outperformed 120+ participants as team lead in 24-hour hackathon by developing cross-platform community outreach app
+Called the Google Maps API to display user event locations, enhancing user experience and event planning capabilities
+Reddit & Twitch Toxicity Data Analysis	August 2023 - Present
+Teamed with 2 classmates to author analytical plan, comparing toxicity on r/LivestreamFail with corresponding Twitch clips
+Developed Dockerized data pipeline to scrape new data, judge it with external API, then store it in MongoDB database
+Implemented Temporal.io to handle workflow orchestration and scheduling, optimizing retry policies to prevent data loss
+Determined communities with the Girvan Newman algorithm and visualized findings with NetworkX knowledge graph
+Communicated all proposals and implementations effectively via LaTeX writings, surpassing project criteria
+NFL Play Predictor	July 2023 - Present
+Cleaned and Preprocessed large tabular datasets using pandas, categorizing data and optimizing it for machine learning
+Achieved 66% accuracy of drive outcome based on real play by play statistics with XGBoost classification model
+Analyzed the model with sci-kit learn (sklearn), allowing for substantial accuracy improvements after each code refactor
+Chat.tv, a Live Streaming AI Chat Service	April 2023 - Present
+Multi-threaded app to maintain smooth GUI performance while receiving API responses in real-time
+Engineered a simulated live streaming platform enabling small streamers to interact with large language model bots
+Integrated SpeechRecognition to transcribe user speech into text for seamless communication with OpenAI API bots
+Scaled platform to support 10,000+ bots simultaneously in "livestreaming chat" environment
+---END RESUME---
+
+Brian Matzelle is a senior at Binghamton University studying Computer Science.
+
+He enjoys programming, producing music, skateboarding, and playing video games.
+
+---PROGRAMMING/PROJECT DESCRIPTIONS---
+I started programming in high school and decided to pursue it once realizing how creative it could be. 
+University provided me with strong fundamentals and a passion for learning new technologies, which I continues to do in his free time.
+I much prefers to learn by doing, and has worked on a variety of projects, including a live streaming chat service, a reddit and twitch toxicity data analysis, and a play predictor for the NFL.
+Being a software engineer has allowed me to combine his love for technology and creativity, and I'm excited to continue to do so in the future.
+I developed the live streaming AI chat service over the course of few months for fun. The program allows someone to simulate a Twitch.tv chat room with AI bots, powered by OpenAI. Notably, I learned how to multithread confidently, handle API calls, and build a smooth, responsive UI.
+Alongside two classmates, I developed the reddit and twitch toxicity data analysis project over the course of a semester for CS415 Social Media Pipelines, a class at Binghamton University. The Dockerized program runs on a schedule with Temporal, scrapes data from r/LivestreamFail and each clip's corresponding Twitch chat, and analyzes the toxicity of each comment with the ModerateHatespeech API. It then stores the data in a MongoDB database, to later be analyzed by the Mistral Zephyr large language model. The analyzed data is then grouped with the Girvan Newman algorithm, and visualized with NetworkX. I learned how to use Temporal, Dockerize a data pipeline, and use NetworkX to visualize data.
+After being introduced to machine learning at his internship at Med-Metrix, I decided to pursue it further. I developed the NFL play predictor over the course of a few weeks for fun, but to also help my team at work. The program uses XGBoost to predict the outcome of a drive based on real play by play statistics. Here, I learned how to use XGBoost, and how to clean and preprocess large tabular datasets.
+---END PROGRAMMING/PROJECT DESCRIPTIONS---
+
+
+---INTERVIEW QUESTIONS---
+Approach with Conflict:
+In conflict, it's best to be truthseeking. This might manifest differently depending on the situation, whether it be raising the issue with a higher up, or doing research to find the right answer.
+
+Potential Tradeoffs in a Project:
+Tradeoffs I've had to make in the past include sacrificing performance for readability, or sacrificing readability for performance. It's important to find the right balance between the two. On a higher level, we've had to sacrifice 
+
+Difficult Problem You Solved:
+
+
+Optimal Time Management:
+Emails in the morning, meetings in the afternoon, and coding in the evening. I find that I'm most productive at night, so I try to schedule my day around that. Also, I definitely prefer to have an uninterupted chunk to dedicate to coding.
+
+Dealing with Close Deadlines:
+Communication!
+
+Thoughts on Improving Software Performance:
+
+Thoughts on Communication:
+
+---END INTERVIEW QUESTIONS---

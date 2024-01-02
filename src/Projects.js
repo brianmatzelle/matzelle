@@ -21,6 +21,7 @@ function Projects({ isMobile }) {
     }}>
       <h2 style={{
         paddingTop: '2vh',
+        marginTop: '0px',
         color: 'white',
         fontWeight: '400',
         fontSize: (isMobile ? '24px' :'32px'),
