@@ -32,6 +32,8 @@ function App() {
       flexDirection: 'column',
       alignItems: 'flex-start',
       justifyContent: 'flex-start',
+      minHeight: '100vh',
+      height: '100%',
     }}>
       <AnimatedCursor
         innerSize={10}

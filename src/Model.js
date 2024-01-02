@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {QdrantClient} from '@qdrant/js-client-rest';
-import { finetunedModel, qdrantApiKey, qdrantEndpoint } from './docs/config';
+import { finetunedModel, qdrantApiKey, qdrantEndpoint, openAIKey } from './docs/config';
 import OpenAI from "openai";
 
 const client = new QdrantClient({
@@ -9,7 +9,10 @@ const client = new QdrantClient({
 });
 
 
-const openai = new OpenAI();
+const openai = new OpenAI({
+    dangerouslyAllowBrowser: true,
+    apiKey: openAIKey,
+});
 
 function Responses({ msgResponses, style={} }) {
     return (
