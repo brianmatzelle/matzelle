@@ -62,7 +62,7 @@ export default function Bio() {
           fontWeight: '350',
         }}
       >
-        I have experience with artificial intelligence (LLMs/ML),
+        I have experience w/ finetuning LLMs & RAG pipelines,
       </span>
       <span
         style={{
@@ -80,9 +80,9 @@ export default function Bio() {
           fontWeight: '350',
         }}
       >
-        and data ELT pipelines.
+        and data science/building pipelines.
       </span>
-      <span
+      {/* <span
         style={{
           paddingTop: '2vh',
           color: 'white',
@@ -116,7 +116,7 @@ export default function Bio() {
             </span>
           </span>
         </a>
-      </span>
+      </span> */}
       <a
         href="mailto: brian@matzelle.co"
         style={{

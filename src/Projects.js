@@ -18,10 +18,12 @@ function Projects({ isMobile }) {
         backgroundColor: '#1A1A1A',
         paddingLeft: '5vw',
         paddingRight: (isMobile ? '15vw' : '5vw'), // 5vw on mobile, 0vw on desktop (767px)
+        paddingBottom: '2vh',
     }}>
       <h2 style={{
-        paddingTop: '2vh',
+        // paddingTop: '2vh',
         marginTop: '0px',
+        marginBottom: '10px',
         color: 'white',
         fontWeight: '400',
         fontSize: (isMobile ? '24px' :'32px'),

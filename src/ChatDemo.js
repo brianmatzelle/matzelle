@@ -9,13 +9,13 @@ function ChatDemo({isMobile}) {
             backgroundColor: '#1A1A1A',
             paddingLeft: '5vw',
             paddingRight: '2vw',
-            paddingBottom: '5vh',
             display: 'flex',
             flexDirection: 'column',
             alignItems: (isMobile ? 'flex-start' : 'flex-end'),
             justifyContent: 'flex-start',
             marginLeft: (isMobile ? '0vw' :'-5vw'),
             width: (isMobile ? '100vw' : 'auto'),
+            marginTop: isMobile ? '0vh' : '-5vh',
         }}>
             <h2 style={{
                 paddingTop: '2vh',
@@ -28,6 +28,7 @@ function ChatDemo({isMobile}) {
             <img src="https://raw.githubusercontent.com/brianmatzelle/AI-Twitch-Chat/master/demo/demo.gif" alt="Chat.tv Demo" style={{
                 width: '55%',
                 height: 'auto',
+                paddingBottom: isMobile ? '5vh' : '0vh',
             }}/>
             {/* </a> */}
         </div>

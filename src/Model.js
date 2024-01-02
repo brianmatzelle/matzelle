@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {QdrantClient} from '@qdrant/js-client-rest';
 import { finetunedModel, qdrantEndpoint } from './docs/config';
 import OpenAI from "openai";
@@ -20,7 +20,7 @@ function UserMessage({ message }) {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'flex-start',
-            justifyContent: 'flex-start',
+            justifyContent: 'flex-end',
         }}>
             <div style={{
                 display: 'flex',
@@ -31,6 +31,7 @@ function UserMessage({ message }) {
                 borderRadius: '10px',
                 padding: '10px',
                 marginRight: '10px',
+                marginBottom: '5px',
                 color: 'white',
             }}>
                 {message}
@@ -55,7 +56,9 @@ function BotMessage({ message }) {
                 backgroundColor: '#343541',
                 borderRadius: '10px',
                 padding: '10px',
-                marginLeft: '10px',
+                marginLeft: '3px',
+                marginRight: '20vw',
+                marginBottom: '5px',
                 color: 'white',
             }}>
                 {message}
@@ -65,16 +68,32 @@ function BotMessage({ message }) {
 }
     
 function Responses({ msgResponses }) {
+    const messagesEndRef = useRef(null);
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+    useEffect(scrollToBottom, [msgResponses]);
+
     return (
         <>
-        {msgResponses.length > 0 &&
-        <div>
-            {console.log(msgResponses)}
+        {msgResponses.length > 1 &&
+        <div
+        style={{
+            paddingBottom: '10px',
+            maxHeight: '30vh',
+            overflowY: 'scroll',
+            scrollbarWidth: 'none',
+            // Firefox
+            '&::-webkit-scrollbar': {
+                display: 'none',
+            },
+            height: '30vh',
+            borderLeft: '1px dotted #343541',
+        }}
+        >
             {msgResponses.map((msgResponse, i) => {
                 return (
                     <div key={i}>
-                        {/* {msgResponse.role === 'user' && <UserMessage message={msgResponse.content} />}
-                        {msgResponse.role === 'assistant' && <BotMessage message={msgResponse.content} />} */}
                         { msgResponse.role === 'user' ? 
                         <UserMessage message={msgResponse.content} /> 
                         : 
@@ -82,6 +101,7 @@ function Responses({ msgResponses }) {
                     </div>
                 );
             })}
+            <div ref={messagesEndRef} />
         </div>
         }
         </>
@@ -118,7 +138,7 @@ const getMessage = async (msgResponses, setMsgResponses, message) => {
     setMsgResponses(prevMsgResponses => prevMsgResponses.concat(msgResponse));
 }
 
-export default function LLM({ style={} }) {
+export default function Model({ setChatInitiated, style={} }) {
     const [message, setMessage] = useState('');
     const [msgResponses, setMsgResponses] = useState([
         {
@@ -126,6 +146,12 @@ export default function LLM({ style={} }) {
         }
     ]);
     const [placeholder, setPlaceholder] = useState(randomPlaceholder());
+
+    useEffect(() => {
+        if (msgResponses.length > 1) {
+            setChatInitiated(true);
+        }
+    }, [msgResponses, setChatInitiated]);
 
     return (
         <div style={style}>
@@ -144,11 +170,9 @@ export default function LLM({ style={} }) {
             style={{
                 width: '100%',
                 height: '1.5vh',
-                fontSize: '12px',
                 padding: '10px 0px 10px 10px',
                 borderRadius: '10px',
                 border: 'none',
-                marginBottom: '20px',
                 outline: 'none',
                 backgroundColor: '#343541',
                 color: 'white',
@@ -190,6 +214,13 @@ export default function LLM({ style={} }) {
                 ↑
             </button> 
         </div>
+        <span style={{
+            color: 'gray',
+            fontSize: '0.75em',
+            margin: 0,
+            padding: 0,
+            paddingLeft: '2px',
+        }}>warning this says stuff that isn't always true!</span>
         </div>
 
     );

@@ -11,6 +11,7 @@ function App() {
   // track window width
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
+  const [chatInitiated, setChatInitiated] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -56,11 +57,15 @@ function App() {
       
       <Model style={{
         paddingLeft: '5vw',
-        paddingTop: '2vh',
-        marginTop: '10vh',
+        // paddingTop: '2vh',
+        // marginTop: '10vh',
+        paddingTop: chatInitiated ? '0px' : '3vh',
         width: isMobile ? '87vw' : '70vw', // 50vw on desktop, 80vw on mobile (767px)
         marginRight: isMobile ? '30vw' : '0vw', // 5vw on mobile, 0vw on desktop (767px)
-      }} />
+        marginBottom: '20px',
+      }} 
+      setChatInitiated={setChatInitiated}
+      />
 
       <div
       className='projects-and-chattv-demo'
