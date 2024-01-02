@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {QdrantClient} from '@qdrant/js-client-rest';
 import { finetunedModel, qdrantApiKey, qdrantEndpoint } from './docs/config';
 
@@ -28,8 +28,14 @@ function randomPlaceholder() {
         'Why did you study computer science?',
         'What projects have you worked on?',
         'What are your hobbies?',
-        'What is your favorite food?',
-        'What do you value when working on a team?'
+        'What\'s your favorite food?',
+        'What do you value when working on a team?',
+        'How was this built?',
+        'Who\'s your favorite programmer?',
+        'What\'s your favorite programming language?',
+        'What do you value most in life?',
+        'What are you currently up to?',
+        'Are you working on any projects currently?',
     ];
     const randIdx = Math.floor(Math.random() * placeholders.length);
     return placeholders[randIdx];
@@ -43,6 +49,11 @@ function randomPlaceholder() {
 export default function LLM({ style={} }) {
     const [message, setMessage] = useState('');
     const [msgResponses, setMsgResponses] = useState([]); // arr of type msgResponse
+    const [placeholder, setPlaceholder] = useState();
+
+    useEffect(() => {
+        setPlaceholder(randomPlaceholder());
+    }, []);
 
     return (
         <div style={style}>
@@ -56,7 +67,7 @@ export default function LLM({ style={} }) {
             <input 
             type="text" 
             value={message}
-            placeholder={randomPlaceholder()}
+            placeholder={placeholder}
             onChange={(e) => setMessage(e.target.value)}
             style={{
                 width: '100%',
@@ -93,6 +104,7 @@ export default function LLM({ style={} }) {
                     top: 5,
                 });
                 setMsgResponses(response.data.result);
+                setPlaceholder('...');
             }}>
                 ↑
             </button> 

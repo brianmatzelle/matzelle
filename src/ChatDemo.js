@@ -9,7 +9,7 @@ function ChatDemo({isMobile}) {
             backgroundColor: '#1A1A1A',
             paddingLeft: '5vw',
             paddingRight: '2vw',
-            paddingBottom: '2vh',
+            paddingBottom: '5vh',
             display: 'flex',
             flexDirection: 'column',
             alignItems: (isMobile ? 'flex-start' : 'flex-end'),
