@@ -48,7 +48,8 @@ function Projects({ isMobile }) {
       {/* LendaHand */}
       <div style={{marginBottom: '3px'}}>
           <a 
-          href='https://github.com/brianmatzelle/LendaHand' 
+          // href='https://github.com/brianmatzelle/LendaHand' 
+          href='https://devpost.com/software/lendahand-oq1snb'
           onMouseOver={() => {expandProject('LendaHand'); setHoverLendaHand(true);}}
           onMouseLeave={() => {setHoverLendaHand(false);}}
           style={{

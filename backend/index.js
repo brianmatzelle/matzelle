@@ -1,3 +1,4 @@
+import {QdrantClient} from '@qdrant/js-client-rest';
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -6,6 +7,11 @@ const { OpenAI } = require('openai');
 
 const openai = new OpenAI({
     apiKey: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+});
+
+const client = new QdrantClient({
+    url: 'https://8ce4e821-39c0-4c03-bd75-1b0da948ce7f.us-east4-0.gcp.cloud.qdrant.io',
+    apiKey: 'FNWjLyxBRGJmOsnJj-BJLmQ_wRD--bNRhpRlkhATH_LSZWNldOmouQ',
 });
 
 const app = express();

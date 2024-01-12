@@ -56,6 +56,15 @@ function App() {
         {!isMobile && <Mascot />}
       </div>
       
+     {!chatInitiated && <div
+     style={{
+      color: '#95969C',
+      paddingLeft: '30vw',
+      margin: '0px',
+      fontSize: '14px',
+     }}
+    >Chat with Brian ↓
+    </div>}
       <Model style={{
         paddingLeft: '5vw',
         // paddingTop: '2vh',

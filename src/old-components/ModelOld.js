@@ -60,14 +60,20 @@ function Responses({ msgResponses }) {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
     };
     useEffect(scrollToBottom, [msgResponses]);
+
     return (
         <>
-        {msgResponses.length > 0 &&
+        {msgResponses.length > 1 &&
         <div
         style={{
             paddingBottom: '10px',
+            // maxHeight: '30vh',
             overflowY: 'scroll',
             scrollbarWidth: 'none',
+            // Firefox
+            '&::-webkit-scrollbar': {
+                display: 'none',
+            },
             height: '40vh',
             borderLeft: '1px dotted #343541',
         }}
@@ -75,8 +81,10 @@ function Responses({ msgResponses }) {
             {msgResponses.map((msgResponse, i) => {
                 return (
                     <div key={i}>
-                        <UserMessage message={msgResponse[0]} />
-                        {msgResponse[1] ? <BotMessage message={msgResponse[1]}/> : <BotMessage message={'...'}/>}
+                        { msgResponse.role === 'user' ? 
+                        <UserMessage message={msgResponse.content} /> 
+                        : 
+                        (msgResponse.role === 'assistant' ? <BotMessage message={msgResponse.content}/> : <></> ) }
                     </div>
                 );
             })}
@@ -106,34 +114,43 @@ function randomPlaceholder() {
 }
 
 const getMessage = async (msgResponses, setMsgResponses, message) => {
-    axios.post('http://localhost:8000/about-me/invoke', {
-        input: {
-            "chat_history": msgResponses.slice(0, msgResponses.length - 1),
-            "question": message,
-        }
+    setMsgResponses(prevMsgResponses => prevMsgResponses.concat({ "role": 'user', "content": message }));
+    // const completion = await openai.chat.completions.create({
+    //     messages: msgResponses.concat({ "role": 'user', "content": message }),
+    //     model: finetunedModel,
+    // });
+    axios.post('http://143.244.158.64:8200/chat', {
+        messages: msgResponses.concat({ "role": 'user', "content": message }),
     }).then((response) => {
         const completion = response.data;
-        // msgResponses[msgResponses.length - 1].push(completion);
-        setMsgResponses(prevMsgResponses => [...prevMsgResponses.slice(0, prevMsgResponses.length - 1), [message, completion.output]]);
-        console.log(msgResponses);
+        console.log(completion);
+        const msgResponse = { "role": 'assistant', "content": completion.choices[0].message.content };
+        setMsgResponses(prevMsgResponses => prevMsgResponses.concat(msgResponse));
     })
     .catch((error) => {
         console.log(error);
     });
+    // console.log(completion);
+    // const msgResponse = { "role": 'assistant', "content": completion.choices[0].message.content };
+    // setMsgResponses(prevMsgResponses => prevMsgResponses.concat(msgResponse));
 }
 
 // const chatHistory = [
-//    ["Hi my name is Brian", "Hi Brian, my name is GPT-3"],
-//    ["What is your favorite food?", "I like pizza"],
+//     ["user", "Hello, I'm a user."],
+//     ["bot", "Hello, I'm a bot."],
 // ]
 
 export default function Model({ setChatInitiated, style={} }) {
     const [message, setMessage] = useState('');
-    const [msgResponses, setMsgResponses] = useState([]);
+    const [msgResponses, setMsgResponses] = useState([
+        {
+            "role": "system", "content": "You are an extension of Brian, only meant to answer career-related questions."
+        }
+    ]);
     const [placeholder, setPlaceholder] = useState(randomPlaceholder());
 
     useEffect(() => {
-        if (msgResponses.length > 0) {
+        if (msgResponses.length > 1) {
             setChatInitiated(true);
         }
     }, [msgResponses, setChatInitiated]);
@@ -164,7 +181,9 @@ export default function Model({ setChatInitiated, style={} }) {
             }} 
             onKeyDown={(e) => {
                 if (e.key === 'Enter') {
-                    setMsgResponses(prevMsgResponses => prevMsgResponses.concat([[message]]));
+                    // e.preventDefault();
+                    // e.stopPropagation();
+                    // e.nativeEvent.stopImmediatePropagation();
                     getMessage(msgResponses, setMsgResponses, message);
                     setPlaceholder('...');
                     setMessage('');
@@ -189,7 +208,6 @@ export default function Model({ setChatInitiated, style={} }) {
                 e.target.style.color = '#343541';
             }}
             onClick={async () => {
-                setMsgResponses(prevMsgResponses => prevMsgResponses.concat([[message]]));
                 getMessage(msgResponses, setMsgResponses, message);
                 setPlaceholder('...');
                 setMessage('');
