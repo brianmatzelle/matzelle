@@ -76,7 +76,7 @@ function Responses({ msgResponses }) {
                 return (
                     <div key={i}>
                         <UserMessage message={msgResponse[0]} />
-                        {msgResponse[1] ? <BotMessage message={msgResponse[1]}/> : <BotMessage message={'...'}/>}
+                        {msgResponse[1] ? <BotMessage message={msgResponse[1]}/> : <BotMessage message={'thinking...'}/>}
                     </div>
                 );
             })}
