@@ -113,7 +113,7 @@ def _get_vectorstore(text_chunks: list[str], load: bool = False):
     print(f"vectorstore saved to {path}")
     return vectorstore
 
-load_vectorstore = False
+load_vectorstore = True
 if load_vectorstore:   
     vectorstore = _get_vectorstore(None, load=True)     
 else:
