@@ -106,7 +106,7 @@ function randomPlaceholder() {
 }
 
 const getMessage = async (msgResponses, setMsgResponses, message) => {
-    axios.post('http://localhost:8000/about-me/invoke', {
+    axios.post('http://143.244.158.64:8000/about-me/invoke', {
         input: {
             "chat_history": msgResponses.slice(0, msgResponses.length - 1),
             "question": message,
