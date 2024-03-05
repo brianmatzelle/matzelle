@@ -106,20 +106,24 @@ function randomPlaceholder() {
 }
 
 const getMessage = async (msgResponses, setMsgResponses, message) => {
-    axios.post('http://143.244.158.64:8002/about-me/invoke', {
-        input: {
-            "chat_history": msgResponses.slice(0, msgResponses.length - 1),
-            "question": message,
-        }
-    }).then((response) => {
-        const completion = response.data;
-        // msgResponses[msgResponses.length - 1].push(completion);
-        setMsgResponses(prevMsgResponses => [...prevMsgResponses.slice(0, prevMsgResponses.length - 1), [message, completion.output]]);
-        console.log(msgResponses);
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+    // axios.post('https://143.244.158.64:8002/about-me/invoke', {
+    // axios.post('http://localhost:8000/about-me/invoke', {
+    //     input: {
+    //         "chat_history": msgResponses.slice(0, msgResponses.length - 1),
+    //         "question": message,
+    //     }
+    // }).then((response) => {
+    //     const completion = response.data;
+    //     // msgResponses[msgResponses.length - 1].push(completion);
+    //     setMsgResponses(prevMsgResponses => [...prevMsgResponses.slice(0, prevMsgResponses.length - 1), [message, completion.output]]);
+    //     console.log(msgResponses);
+    // })
+    // .catch((error) => {
+    //     console.log(error);
+    // });
+
+    // FOR NOW, WHILE NOT WORKING
+    setMsgResponses(prevMsgResponses => [...prevMsgResponses.slice(0, prevMsgResponses.length - 1), [message, 'this is currently broken :(']]);
 }
 
 // const chatHistory = [

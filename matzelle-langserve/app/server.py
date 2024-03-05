@@ -26,6 +26,8 @@ from langserve import add_routes
 from langserve.pydantic_v1 import BaseModel, Field
 from fastapi.responses import RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
+import ssl
+from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 
 _TEMPLATE = """Given the following conversation and a follow up question, rephrase the 
 follow up question to be a standalone question, in its original language.
@@ -151,7 +153,10 @@ conversational_qa_chain = (
     _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model=brian_finetune) | StrOutputParser()
 )
 chain = conversational_qa_chain.with_types(input_type=ChatHistory)
+ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 
+ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+ssl_context.load_cert_chain('./cert.pem', keyfile='./key.pem')
 app = FastAPI(
     title="LangChain Server",
     version="1.0",
@@ -164,6 +169,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+# app.add_middleware(HTTPSRedirectMiddleware)
 
 @app.get("/")
 async def redirect_root_to_docs():
