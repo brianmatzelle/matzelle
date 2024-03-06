@@ -26,3 +26,6 @@ node_modules/
 venv/
 __pycache__
 .envrc
+
+privkey.pem
+cert.pem

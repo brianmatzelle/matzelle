@@ -13,14 +13,14 @@ from operator import itemgetter
 from typing import List, Tuple
 
 from fastapi import FastAPI
-from langchain.chat_models import ChatOpenAI
-from langchain.embeddings import OpenAIEmbeddings
+from langchain_openai import ChatOpenAI
+from langchain_openai import OpenAIEmbeddings
 from langchain.prompts import ChatPromptTemplate
 from langchain.prompts.prompt import PromptTemplate
 from langchain.schema import format_document
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnableMap, RunnablePassthrough
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from langchain.text_splitter import CharacterTextSplitter
 from langserve import add_routes
 from langserve.pydantic_v1 import BaseModel, Field
@@ -93,7 +93,7 @@ def _get_vectorstore(text_chunks: list[str], load: bool = False):
     embeddings = OpenAIEmbeddings()
     if load:
         print("loading vectorstore...")
-        vectorstore = FAISS.load_local("./vectorstores/about_me", embeddings=embeddings)
+        vectorstore = FAISS.load_local("about_me", embeddings=embeddings)
         print("vectorstore loaded")
         return vectorstore
     
@@ -153,10 +153,9 @@ conversational_qa_chain = (
     _inputs | _context | ANSWER_PROMPT | ChatOpenAI(model=brian_finetune) | StrOutputParser()
 )
 chain = conversational_qa_chain.with_types(input_type=ChatHistory)
-ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
 
 ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-ssl_context.load_cert_chain('./cert.pem', keyfile='./key.pem')
+ssl_context.load_cert_chain('cert.pem', keyfile='privkey.pem')
 app = FastAPI(
     title="LangChain Server",
     version="1.0",
@@ -169,11 +168,12 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
-# app.add_middleware(HTTPSRedirectMiddleware)
+app.add_middleware(HTTPSRedirectMiddleware)
 
 @app.get("/")
 async def redirect_root_to_docs():
     return RedirectResponse("/playground")
+
 # Adds routes to the app for using the chain under:
 # /invoke
 # /batch
@@ -184,7 +184,7 @@ add_routes(app, chain, enable_feedback_endpoint=True, path="/about-me")
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="localhost", port=8000)
+    uvicorn.run(app, host="localhost", port=8000, ssl=ssl_context)
 
 
 
