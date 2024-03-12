@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { TypeAnimation } from 'react-type-animation';
 import GitHub from './socials/GitHub';
 import LinkedIn from './socials/LinkedIn';
 import SoundCloud from './socials/SoundCloud';
@@ -43,7 +44,18 @@ export default function Bio() {
           fontWeight: '400',
         }}
       >
-        Brian Matzelle
+        {/* Brian Matzelle */}
+        <TypeAnimation
+          sequence={[
+            ' Hi, I\'m Brian Matzelle',
+            1500,
+            ' a Software Engineer',
+            8000
+          ]}
+          wrapper="span"
+          speed={40}
+          repeat={Infinity}
+        />
       </h1>
       <span
         style={{
@@ -52,7 +64,8 @@ export default function Bio() {
           fontWeight: '350',
         }}
       >
-        Welcome, I'm a Computer Science senior at Binghamton University.
+        {/* Welcome, I'm a Computer Science senior at Binghamton University. */}
+        I'm a Computer Science senior at Binghamton University.
       </span>
       <span
         style={{
