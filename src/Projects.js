@@ -61,7 +61,9 @@ function Projects({ isMobile }) {
         <a
         onMouseOver={() => {expandProject('Chat.tv'); setHoverChat(true);}}
         onMouseLeave={() => {setHoverChat(false);}} 
-        href='https://github.com/brianmatzelle/Chat.tv/releases' 
+        href='https://github.com/brianmatzelle/Chat.tv/releases'
+        target='_blank'
+        rel='noreferrer' 
         style={{
           color: '#005A43',
           fontSize: projFontSize,
@@ -77,6 +79,8 @@ function Projects({ isMobile }) {
           <a 
           // href='https://github.com/brianmatzelle/LendaHand' 
           href='https://devpost.com/software/lendahand-oq1snb'
+          target='_blank'
+          rel='noreferrer'
           onMouseOver={() => {expandProject('LendaHand'); setHoverLendaHand(true);}}
           onMouseLeave={() => {setHoverLendaHand(false);}}
           style={{
@@ -101,6 +105,8 @@ function Projects({ isMobile }) {
       <div style={{marginBottom: '3px'}}>
         <a
         href='https://brianmatzelle.github.io/reactor-suite-js/'
+        target='_blank'
+        rel='noreferrer'
         onMouseOver={() => {expandProject('Reactor Suite'); setHoverReactorSuite(true);}}
         onMouseLeave={() => {setHoverReactorSuite(false);}}
         style={{
@@ -127,6 +133,8 @@ function Projects({ isMobile }) {
       <div style={{marginBottom: '3px'}}>
         <a 
         href='https://github.com/brianmatzelle/AudioSynth' 
+        target='_blank'
+        rel='noreferrer'
         onMouseOver={() => {expandProject('Audio Synthesizer'); setHoverAudioSynthesizer(true);}}
         onMouseLeave={() => {setHoverAudioSynthesizer(false);}}
         style={{
