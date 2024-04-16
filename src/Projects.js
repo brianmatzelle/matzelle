@@ -104,7 +104,7 @@ function Projects({ isMobile }) {
       {/* Reactor Suite */}
       <div style={{marginBottom: '3px'}}>
         <a
-        href='https://brianmatzelle.github.io/reactor-suite-js/'
+        href='https://suite.matzelle.co/'
         target='_blank'
         rel='noreferrer'
         onMouseOver={() => {expandProject('Reactor Suite'); setHoverReactorSuite(true);}}
