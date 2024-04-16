@@ -5,6 +5,7 @@ function Projects({ isMobile }) {
     const [hoverLendaHand, setHoverLendaHand] = useState(false);
     const [hoverAudioSynthesizer, setHoverAudioSynthesizer] = useState(false);
     const [hoverReactorSuite, setHoverReactorSuite] = useState(false);
+    const [hoverAsdf, setHoverAsdf] = useState(false);
 
     const paraFontSize = isMobile ? '12px' : '16px';
     const projFontSize = isMobile ? '18px' : '20px';
@@ -29,6 +30,32 @@ function Projects({ isMobile }) {
         fontSize: (isMobile ? '24px' :'32px'),
       }}>Projects</h2>
 
+      { /* asdf */ }
+      <div style={{marginBottom: '3px'}}>
+        <a
+        onMouseOver={() => {expandProject('asdf'); setHoverAsdf(true);}}
+        onMouseLeave={() => {setHoverAsdf(false);}}
+        target='_blank'
+        rel='noreferrer'
+        href='https://asdf.matzelle.co'
+        style={{
+          color: '#005A43',
+          fontSize: projFontSize,
+          fontWeight: '350',
+          textDecoration: (hoverAsdf ? 'underline' : 'none'),
+          paddingTop: '1vh',
+        }}>- asdf</a>
+        <span style={{
+            color: 'white',
+            fontSize: paraFontSize,
+            fontWeight: '350',
+            textDecoration: 'none',
+            paddingTop: '1vh',
+        }}>&nbsp; 👨🏻‍💻 Web typing game built with Next.js, FastAPI, and MongoDB
+        </span>
+      </div>
+      { /* asdf */ }
+
       {/* Chat.tv */}
       <div style={{marginBottom: '3px'}}>
         <a
@@ -41,7 +68,7 @@ function Projects({ isMobile }) {
           fontWeight: '350',
           textDecoration: (hoverChat ? 'underline' : 'none'),
           paddingTop: '1vh',
-        }}>- Chat.tv</a>
+        }}>- AI Twitch.tv Chat</a>
       </div>
       {/* Chat.tv */}
 

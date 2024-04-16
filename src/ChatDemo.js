@@ -24,7 +24,7 @@ function ChatDemo({isMobile}) {
                 fontSize: '14px',
                 marginTop: (isMobile ? '0vh' : '-15vh'),
                 paddingLeft: '5vw',
-            }}>Chat.tv Demo</h2>
+            }}>AI Twitch.tv Chat demo</h2>
             {/* <a href='https://github.com/brianmatzelle/AI-Twitch-Chat'> */}
             <img src="https://raw.githubusercontent.com/brianmatzelle/AI-Twitch-Chat/master/demo/demo.gif" alt="Chat.tv Demo" style={{
                 width: '55%',
