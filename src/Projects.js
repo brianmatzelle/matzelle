@@ -44,7 +44,7 @@ function Projects({ isMobile }) {
           fontWeight: '350',
           textDecoration: (hoverAsdf ? 'underline' : 'none'),
           paddingTop: '1vh',
-        }}>- asdf</a>
+        }}>- asdfType</a>
         <span style={{
             color: 'white',
             fontSize: paraFontSize,
