@@ -7,10 +7,6 @@ html {
     scrollbar-width: none; /* For Firefox */
 }
 
-body {
-    background-color: #1A1A1A;
-}
-
 ::-moz-selection {
     background: #005A43;
 }
