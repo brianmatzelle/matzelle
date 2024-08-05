@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 
+// function Project
+
 function Projects({ isMobile }) {
     const [hoverChat, setHoverChat] = useState(false);
     const [hoverLendaHand, setHoverLendaHand] = useState(false);
     const [hoverAudioSynthesizer, setHoverAudioSynthesizer] = useState(false);
     const [hoverReactorSuite, setHoverReactorSuite] = useState(false);
     const [hoverAsdf, setHoverAsdf] = useState(false);
+    const [hoverRefhub, setHoverRefhub] = useState(false);
+    const [hoverObjectTracking, setHoverObjectTracking] = useState(false);
 
     const paraFontSize = isMobile ? '12px' : '16px';
     const projFontSize = isMobile ? '18px' : '20px';
 
     const expandProject = (project) => {
-      console.log(project);
+      // console.log(project);
     }
 
     return (
@@ -29,6 +33,38 @@ function Projects({ isMobile }) {
         fontWeight: '400',
         fontSize: (isMobile ? '24px' :'32px'),
       }}>Projects</h2>
+
+      { /* refhub.io */ }
+      <div style={{marginBottom: '3px'}}>
+        <a
+        onMouseOver={() => {expandProject('refhub.io'); setHoverRefhub(true);}}
+        onMouseLeave={() => {setHoverRefhub(false);}}
+        target='_blank'
+        rel='noreferrer'
+        href='https://www.refhub.io'
+        style={{
+          color: '#005A43',
+          fontSize: projFontSize,
+          fontWeight: '350',
+          textDecoration: (hoverRefhub ? 'underline' : 'none'),
+          paddingTop: '1vh',
+        }}>- RefHub.io</a>
+        <span style={{
+            color: 'white',
+            fontSize: paraFontSize,
+            fontWeight: '350',
+            textDecoration: 'none',
+            paddingTop: '1vh',
+        }}>&nbsp; 🧊 file sharing site for .referenceobjects - used for <a 
+          onMouseOver={() => {setHoverObjectTracking(true)}} 
+          onMouseLeave={() => {setHoverObjectTracking(false)}}
+          style={{color: '#005A43', textDecoration: (hoverObjectTracking ? 'underline' : 'none')}} 
+          href='https://youtu.be/kiSOmFVfNpc?si=1e2ZvVVyoiFmsAyg'
+          >object tracking
+          </a> in Vision OS
+        </span>
+      </div>
+      { /* refhub.io */ }
 
       { /* asdf */ }
       <div style={{marginBottom: '3px'}}>

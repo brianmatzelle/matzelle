@@ -56,7 +56,7 @@ function App() {
         {!isMobile && <Mascot />}
       </div>
       
-     {!chatInitiated && <div
+     {/* {!chatInitiated && <div
      style={{
       color: '#95969C',
       paddingLeft: '30vw',
@@ -75,7 +75,7 @@ function App() {
         marginBottom: '20px',
       }} 
       setChatInitiated={setChatInitiated}
-      />
+      /> */}
 
       <div
       className='projects-and-chattv-demo'
