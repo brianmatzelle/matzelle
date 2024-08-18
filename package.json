@@ -20,11 +20,11 @@
     "react-animated-cursor": "^2.6.0",
     "react-dom": "^18.2.0",
     "react-remove-scroll-bar": "^2.3.4",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-three-fiber": "^6.0.13",
     "react-type-animation": "^3.2.0",
     "three": "^0.152.2",
-    "typescript": "^5.5.4",
+    "typescript": "^4.4.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
