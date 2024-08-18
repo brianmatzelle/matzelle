@@ -6,15 +6,12 @@ export default function Resume({ linkFontSize }) {
       <div
       style={{
         display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
         paddingTop: '.5vh',
         fontSize: linkFontSize,
         fontWeight: '350',
       }}
       >
-        <span>🧾</span>
+        <span className="">🧾</span>
         <a
           href="https://github.com/brianmatzelle/matzelle/blob/main/src/socials/assets/Brian-Matzelle-resume.pdf"
           onMouseEnter={() => setHoverLinkedIn(true)}
@@ -22,7 +19,6 @@ export default function Resume({ linkFontSize }) {
           style={{
             color: '#005A43',
             textDecoration: hoverLinkedIn ? 'underline' : 'none',
-            paddingLeft: '5px',
           }}
         >
         Resume

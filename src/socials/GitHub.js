@@ -10,6 +10,7 @@ export default function GitHub(props) {
             href="https://github.com/brianmatzelle"
             onMouseEnter={() => setHoverGitHub(true)}
             onMouseLeave={() => setHoverGitHub(false)}
+            className='pl-1'
             style={{
                 display: 'flex',
                 flexDirection: 'row',

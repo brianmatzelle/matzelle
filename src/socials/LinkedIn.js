@@ -10,6 +10,7 @@ export default function LinkedIn(props) {
         href="https://www.linkedin.com/in/brianmatzelle/"
         onMouseEnter={() => setHoverLinkedIn(true)}
         onMouseLeave={() => setHoverLinkedIn(false)}
+        className='pl-1'
         style={{
           display: 'flex',
           flexDirection: 'row',

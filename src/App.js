@@ -4,14 +4,14 @@ import Mascot from './Mascot.js';
 import Projects from './Projects.js';
 import AnimatedCursor from "react-animated-cursor";
 import ChatDemo from './ChatDemo.js';
-import Model from './Model.js';
+// import Model from './Model.js';
 import './App.css';
 
 function App() {
   // track window width
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
-  const [chatInitiated, setChatInitiated] = useState(false);
+  // const [chatInitiated, setChatInitiated] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);

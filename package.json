@@ -9,6 +9,10 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^22.4.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "axios": "^1.6.3",
     "gh-pages": "^5.0.0",
     "openai": "^4.24.1",
@@ -20,6 +24,7 @@
     "react-three-fiber": "^6.0.13",
     "react-type-animation": "^3.2.0",
     "three": "^0.152.2",
+    "typescript": "^5.5.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,5 +51,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
   }
 }

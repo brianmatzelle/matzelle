@@ -6,9 +6,10 @@ export default function SoundCloud(props) {
     return (
     <>
         <a
-        href="https://soundcloud.com/blancsavant/understand"
+        href="https://soundcloud.com/blancsavant/hypochondriac"
         onMouseEnter={() => setHoverSoundCloud(true)}
         onMouseLeave={() => setHoverSoundCloud(false)}
+        className='pl-1'
         style={{
             display: 'flex',
             flexDirection: 'row',
@@ -27,8 +28,7 @@ export default function SoundCloud(props) {
             style={{
                 width: '16px',
                 marginRight: '7px',
-            }}
-            />
+            }}/>
         SoundCloud
         </a>
     </>

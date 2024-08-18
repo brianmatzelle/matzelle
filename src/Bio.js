@@ -48,9 +48,9 @@ export default function Bio() {
         <TypeAnimation
           sequence={[
             ' Hi, I\'m Brian Matzelle',
-            1500,
+            8000,
             ' a Software Engineer',
-            8000
+            1500,
           ]}
           wrapper="span"
           speed={40}
@@ -65,7 +65,9 @@ export default function Bio() {
         }}
       >
         {/* Welcome, I'm a Computer Science senior at Binghamton University. */}
-        I'm a Computer Science senior at Binghamton University.
+        {/* I'm a Computer Science senior at Binghamton University. */}
+        I'm an Associate Software Engineer at&nbsp;
+        <a className='text-[#005A43] hover:underline' href='https://sagesure.com/'>SageSure</a>
       </span>
       <span
         style={{
@@ -75,7 +77,7 @@ export default function Bio() {
           fontWeight: '350',
         }}
       >
-        I have experience w/ finetuning LLMs & RAG pipelines,
+        I have experience w/ fullstack development,
       </span>
       <span
         style={{
@@ -84,7 +86,7 @@ export default function Bio() {
           fontWeight: '350',
         }}
       >
-        mobile development (iOS and Android),
+        machine learning & finetuning LLMs,
       </span>
       <span
         style={{
@@ -132,6 +134,7 @@ export default function Bio() {
       </span> */}
       <a
         href="mailto: brian@matzelle.co"
+        className='hover:underline'
         style={{
           paddingTop: '2vh',
           color: '#005A43',
@@ -144,7 +147,7 @@ export default function Bio() {
 
       <GitHub linkFontSize={linkFontSize} />
       <LinkedIn linkFontSize={linkFontSize} />
-      {/* <SoundCloud linkFontSize={linkFontSize} /> */}
+      <SoundCloud linkFontSize={linkFontSize} />
       <Resume linkFontSize={linkFontSize}/>
     </div>
   );

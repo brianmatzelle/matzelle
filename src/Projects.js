@@ -166,7 +166,7 @@ function Projects({ isMobile }) {
       {/* Reactor Suite */}
 
       {/* Audio Synthesizer */}
-      <div style={{marginBottom: '3px'}}>
+      {/* <div style={{marginBottom: '3px'}}>
         <a 
         href='https://github.com/brianmatzelle/AudioSynth' 
         target='_blank'
@@ -189,7 +189,7 @@ function Projects({ isMobile }) {
             paddingTop: '1vh',
         }}>&nbsp; 🎉 Recognized as a Best in Class Project by Binghamton University Computer Science Department
         </span>
-      </div>
+      </div> */}
       {/* Audio Synthesizer */}
 
     </div>
