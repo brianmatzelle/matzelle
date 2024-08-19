@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from '../components/ui/link.tsx';
 
 export default function Resume({ linkFontSize }) {
-  const [hoverLinkedIn, setHoverLinkedIn] = useState(false);
   return (
       <div
       style={{
@@ -10,19 +10,9 @@ export default function Resume({ linkFontSize }) {
         fontWeight: '350',
       }}
       >
-        <span className="">🧾</span>
-        <a
-          href="https://github.com/brianmatzelle/matzelle/blob/main/src/socials/assets/Brian-Matzelle-resume.pdf"
-          onMouseEnter={() => setHoverLinkedIn(true)}
-          onMouseLeave={() => setHoverLinkedIn(false)}
-          style={{
-            color: '#005A43',
-            textDecoration: hoverLinkedIn ? 'underline' : 'none',
-          }}
-        >
-        &nbsp;Resume&nbsp;
-        </a>
-        <span className='text-xs text-[#005A43]'>- outdated</span>
+        <span className="">🧾&nbsp;</span>
+        <Link href="https://github.com/brianmatzelle/matzelle/blob/main/src/socials/assets/Brian-Matzelle-resume.pdf">Resume</Link>
+        <span className='text-xs text-[#005A43]'>&nbsp;-- outdated</span>
       </div>
   );
 }
