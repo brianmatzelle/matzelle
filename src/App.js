@@ -6,6 +6,7 @@ import AnimatedCursor from "react-animated-cursor";
 import ChatDemo from './ChatDemo.js';
 // import Model from './Model.js';
 import './App.css';
+import HuggingFace from './HuggingFace.tsx';
 
 function App() {
   // track window width
@@ -74,15 +75,8 @@ function App() {
       }} 
       setChatInitiated={setChatInitiated}
       /> */}
-      <span className={`text-white px-[5vw] m-0 ${isMobile ? '' : 'w-[80vw]'}`}>Currently maintaining the unofficial
-        <a className='text-[#005A43] hover:underline' href='https://huggingface.co/BinghamtonUniversity'>&nbsp;Binghamton University Huggingface group.&nbsp;</a>
-        
-        Here, I've published this
-        <a className='text-[#005A43] hover:underline' href='https://huggingface.co/BinghamtonUniversity/cs415-llama2-7b-twitch-chats-40k'>&nbsp;finetuned model&nbsp;</a>
-        alongside 
-        <a className='text-[#005A43] hover:underline' href='https://huggingface.co/datasets/BinghamtonUniversity/cs415-twitch-chats-llama2-51k'>&nbsp;it's dataset,&nbsp;</a>
-        
-        which I curated with the help of two classmates in CS415.</span>
+
+      <HuggingFace isMobile={isMobile} />
 
       <div
       className='projects-and-chattv-demo'
