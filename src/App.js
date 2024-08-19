@@ -26,13 +26,12 @@ function App() {
   }, [windowWidth]);
   return (
     <div 
-    className="safe-area-container"
+    className='safe-area-container flex flex-col items-start gap-24'
     style={{
       backgroundColor: '#1A1A1A',
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'flex-start',
-      justifyContent: 'flex-start',
+      // alignItems: 'flex-start',
+      // justifyContent: 'flex-start',
       minHeight: '100vh',
       height: '100%',
       width: '100%',
@@ -47,14 +46,13 @@ function App() {
       />
       <div className='name-and-mascot' style={{
         display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'flex-start',
         justifyContent: 'space-between',
       }}>
         <Bio />
         {/* Only show mascot if not on mobile */}
         {!isMobile && <Mascot />}
       </div>
+
       
      {/* {!chatInitiated && <div
      style={{
@@ -76,6 +74,15 @@ function App() {
       }} 
       setChatInitiated={setChatInitiated}
       /> */}
+      <span className={`text-white px-[5vw] m-0 ${isMobile ? '' : 'w-[80vw]'}`}>Currently maintaining the unofficial
+        <a className='text-[#005A43] hover:underline' href='https://huggingface.co/BinghamtonUniversity'>&nbsp;Binghamton University Huggingface group.&nbsp;</a>
+        
+        Here, I've published this
+        <a className='text-[#005A43] hover:underline' href='https://huggingface.co/BinghamtonUniversity/cs415-llama2-7b-twitch-chats-40k'>&nbsp;finetuned model&nbsp;</a>
+        alongside 
+        <a className='text-[#005A43] hover:underline' href='https://huggingface.co/datasets/BinghamtonUniversity/cs415-twitch-chats-llama2-51k'>&nbsp;it's dataset,&nbsp;</a>
+        
+        which I curated with the help of two classmates in CS415.</span>
 
       <div
       className='projects-and-chattv-demo'

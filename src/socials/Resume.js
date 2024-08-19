@@ -5,7 +5,6 @@ export default function Resume({ linkFontSize }) {
   return (
       <div
       style={{
-        display: 'flex',
         paddingTop: '.5vh',
         fontSize: linkFontSize,
         fontWeight: '350',
@@ -21,8 +20,9 @@ export default function Resume({ linkFontSize }) {
             textDecoration: hoverLinkedIn ? 'underline' : 'none',
           }}
         >
-        Resume
+        &nbsp;Resume&nbsp;
         </a>
+        <span className='text-xs text-[#005A43]'>- outdated</span>
       </div>
   );
 }

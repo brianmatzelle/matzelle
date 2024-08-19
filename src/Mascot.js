@@ -77,7 +77,7 @@ export default function Mascot() {
     <Canvas 
     style={{ 
       width: "40vw", 
-      height: "50vh", 
+      height: "35vh", 
       paddingLeft: '6vw' 
     }}
     >

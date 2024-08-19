@@ -26,7 +26,7 @@ export default function Bio() {
   
   return (
     <div
-      className="name-container"
+      className="name-container h-[fit-content]"
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -64,8 +64,6 @@ export default function Bio() {
           fontWeight: '350',
         }}
       >
-        {/* Welcome, I'm a Computer Science senior at Binghamton University. */}
-        {/* I'm a Computer Science senior at Binghamton University. */}
         I'm an Associate Software Engineer at&nbsp;
         <a className='text-[#005A43] hover:underline' href='https://sagesure.com/'>SageSure</a>
       </span>
@@ -97,41 +95,6 @@ export default function Bio() {
       >
         and data science/building pipelines.
       </span>
-      {/* <span
-        style={{
-          paddingTop: '2vh',
-          color: 'white',
-          fontSize: paraFontSize,
-        }}
-        >
-        I'm currently a software engineer @ {' '}
-        <a 
-        href='https://www.med-metrix.com/'
-        style={{
-          textDecoration: 'none',
-        }}
-        >
-          <span
-          style={{
-            color: '#5656F0',
-          }}
-          >
-            Med
-          </span>
-          <span
-          style={{
-            color: 'white',
-          }}
-          >
-            -Metri
-            <span
-            className='x'
-            >
-            x
-            </span>
-          </span>
-        </a>
-      </span> */}
       <a
         href="mailto: brian@matzelle.co"
         className='hover:underline'
