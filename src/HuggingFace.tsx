@@ -11,7 +11,7 @@ const HuggingFace = ({ isMobile }: {
     isMobile: boolean;
 }) => {
   return (
-    <span className={`text-white px-[5vw] m-0 ${isMobile ? '' : 'w-[80vw]'}`}>Currently maintaining the unofficial&nbsp;
+    <span className={`text-white text-lg px-[5vw] m-0 ${isMobile ? '' : 'w-[80vw]'}`}>Currently maintaining the unofficial&nbsp;
         <Link href={links.huggingface}>Binghamton University Huggingface group.</Link>
         &nbsp;Here, I've published this&nbsp;
         <Link href={links.model}>finetuned model</Link>
