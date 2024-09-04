@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Bio from './Bio.js';
+import Bio from './Bio.tsx';
 import Mascot from './Mascot.js';
 import Projects from './Projects.js';
 import AnimatedCursor from "react-animated-cursor";

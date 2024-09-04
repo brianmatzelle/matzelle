@@ -6,26 +6,26 @@ import SoundCloud from './socials/SoundCloud';
 import Resume from './socials/Resume';
 import './Bio.css';
 
-export default function Bio() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(false);
+export default function Bio(): JSX.Element {
+  const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
+    const handleResize = (): void => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     if (windowWidth < 767) {
       setIsMobile(true);
     }
     else if (windowWidth >= 767) {
-        setIsMobile(false);
+      setIsMobile(false);
     }
     return () => window.removeEventListener('resize', handleResize);
   }, [windowWidth]);
 
-  const headingSize = isMobile ? 'text-[30px]' : 'text-[40px]';
-  const paragraphSize = isMobile ? 'text-[18px]' : 'text-[26px]';
-  const linkSize = isMobile ? 'text-[16px]' : 'text-[20px]';
-  const commonTextStyles = 'text-white font-[350]';
+  const headingSize: string = isMobile ? 'text-[30px]' : 'text-[40px]';
+  const paragraphSize: string = isMobile ? 'text-[18px]' : 'text-[26px]';
+  const linkSize: string = isMobile ? 'text-[16px]' : 'text-[20px]';
+  const commonTextStyles: string = 'text-white font-[350]';
   
   return (
     <div className={`name-container h-fit flex flex-col items-start justify-start pl-[5vw] pt-[2vh] ${isMobile ? 'mr-[30vw]' : 'mr-0'}`}>
