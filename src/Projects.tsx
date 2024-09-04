@@ -10,14 +10,15 @@ function Projects({ isMobile }: ProjectsProps) {
     const linkColor: string = 'text-[#005A43]';
     const linkFontSize: string = isMobile ? 'text-xl' : 'text-2xl';
     const linkBase: string = `${linkColor} ${linkFontSize} font-light pt-[1vh] hover:underline`;
-    const spanBase: string = `text-white ${isMobile ? 'text-sm pr-[5vw]' : 'text-lg'} font-normal pt-[1vh]`;
+    const spanBase: string = `text-white ${isMobile ? 'text-sm' : 'text-lg'} font-normal pt-[1vh]`;
+    const projectBase: string = `mb-[3px]`;
 
     return (
-    <div id="projects" className={`bg-[#1A1A1A] pl-[5vw] pr-[${isMobile ? '15vw' : '5vw'}] pb-[2vh]`}>
+    <div id="projects" className={`bg-[#1A1A1A] px-[5vw] pr-[${isMobile ? '15vw' : '5vw'}] pb-[2vh]`}>
       <h2 className={`mt-0 mb-[10px] text-white font-normal ${isMobile ? 'text-2xl' : 'text-3xl'}`}>Projects</h2>
 
       { /* refhub.io */ }
-      <div className="mb-[3px]">
+      <div className={projectBase}>
         <a
         target='_blank'
         rel='noreferrer'
@@ -36,7 +37,7 @@ function Projects({ isMobile }: ProjectsProps) {
       { /* refhub.io */ }
 
       { /* asdf */ }
-      <div className="mb-[3px]">
+      <div className={projectBase}>
         <a
         target='_blank'
         rel='noreferrer'
@@ -51,7 +52,7 @@ function Projects({ isMobile }: ProjectsProps) {
       { /* asdf */ }
 
       {/* Chat.tv */}
-      <div className="mb-[3px]">
+      <div className={projectBase}>
         <a
         href='https://github.com/brianmatzelle/Chat.tv/releases'
         target='_blank'
@@ -63,7 +64,7 @@ function Projects({ isMobile }: ProjectsProps) {
       {/* Chat.tv */}
 
       {/* LendaHand */}
-      <div className="mb-[3px]">
+      <div className={projectBase}>
           <a 
           href='https://devpost.com/software/lendahand-oq1snb'
           target='_blank'
@@ -78,7 +79,7 @@ function Projects({ isMobile }: ProjectsProps) {
       {/* LendaHand */}
 
       {/* Reactor Suite */}
-      <div className="mb-[3px]">
+      <div className={projectBase}>
         <a
         href='https://suite.matzelle.co/'
         target='_blank'
