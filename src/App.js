@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Bio from './Bio.tsx';
 import Mascot from './Mascot.js';
-import Projects from './Projects.js';
+import Projects from './Projects.tsx';
 import AnimatedCursor from "react-animated-cursor";
 import ChatDemo from './ChatDemo.js';
 // import Model from './Model.js';
