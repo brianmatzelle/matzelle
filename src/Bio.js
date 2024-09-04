@@ -9,8 +9,6 @@ import './Bio.css';
 export default function Bio() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
-  const paraFontSize = isMobile ? '18px' : '26px'; // 24px on desktop, 18px on mobile (767px)
-  const linkFontSize = isMobile ? '16px' : '20px'; // 18px on desktop, 14px on mobile (767px)
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -23,28 +21,15 @@ export default function Bio() {
     }
     return () => window.removeEventListener('resize', handleResize);
   }, [windowWidth]);
+
+  const headingSize = isMobile ? 'text-[30px]' : 'text-[40px]';
+  const paragraphSize = isMobile ? 'text-[18px]' : 'text-[26px]';
+  const linkSize = isMobile ? 'text-[16px]' : 'text-[20px]';
+  const commonTextStyles = 'text-white font-[350]';
   
   return (
-    <div
-      className="name-container h-[fit-content]"
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'flex-start',
-        paddingLeft: '5vw',
-        paddingTop: '2vh',
-        marginRight: isMobile ? '30vw' : '0vw', // 5vw on mobile, 0vw on desktop (767px)
-      }}
-    >
-      <h1
-        style={{
-          color: 'white',
-          fontSize: isMobile ? '30px' : '40px', // 48px on desktop, 36px on mobile (767px)
-          fontWeight: '400',
-        }}
-      >
-        {/* Brian Matzelle */}
+    <div className={`name-container h-fit flex flex-col items-start justify-start pl-[5vw] pt-[2vh] ${isMobile ? 'mr-[30vw]' : 'mr-0'}`}>
+      <h1 className={`${commonTextStyles} ${headingSize} font-normal`}>
         <TypeAnimation
           sequence={[
             ' Hi, I\'m Brian Matzelle',
@@ -57,61 +42,30 @@ export default function Bio() {
           repeat={Infinity}
         />
       </h1>
-      <span
-        style={{
-          color: 'white',
-          fontSize: paraFontSize,
-          fontWeight: '350',
-        }}
-      >
+      <span className={`${commonTextStyles} ${paragraphSize}`}>
         I'm an Associate Software Engineer at&nbsp;
         <a className='text-[#005A43] hover:underline' href='https://sagesure.com/'>SageSure</a>
       </span>
-      <span
-        style={{
-          paddingTop: '2vh',
-          color: 'white',
-          fontSize: paraFontSize,
-          fontWeight: '350',
-        }}
-      >
+      <span className={`pt-[2vh] ${commonTextStyles} ${paragraphSize}`}>
         I have experience w/ fullstack development,
       </span>
-      <span
-        style={{
-          color: 'white',
-          fontSize: paraFontSize,
-          fontWeight: '350',
-        }}
-      >
+      <span className={`${commonTextStyles} ${paragraphSize}`}>
         machine learning & finetuning LLMs,
       </span>
-      <span
-        style={{
-          color: 'white',
-          fontSize: paraFontSize,
-          fontWeight: '350',
-        }}
-      >
+      <span className={`${commonTextStyles} ${paragraphSize}`}>
         and data science/building pipelines.
       </span>
       <a
         href="mailto: brian@matzelle.co"
-        className='hover:underline'
-        style={{
-          paddingTop: '2vh',
-          color: '#005A43',
-          fontSize: linkFontSize,
-          fontWeight: '350',
-        }}
+        className={`pt-[2vh] text-[#005A43] ${linkSize} font-[350] hover:underline`}
       >
         brian@matzelle.co
       </a>
 
-      <GitHub linkFontSize={linkFontSize} />
-      <LinkedIn linkFontSize={linkFontSize} />
-      <SoundCloud linkFontSize={linkFontSize} />
-      <Resume linkFontSize={linkFontSize}/>
+      <GitHub linkFontSize={isMobile ? '16px' : '20px'} />
+      <LinkedIn linkFontSize={isMobile ? '16px' : '20px'} />
+      <SoundCloud linkFontSize={isMobile ? '16px' : '20px'} />
+      <Resume linkFontSize={isMobile ? '16px' : '20px'}/>
     </div>
   );
-}    
+}
