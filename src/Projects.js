@@ -11,8 +11,8 @@ function Projects({ isMobile }) {
     const [hoverRefhub, setHoverRefhub] = useState(false);
     const [hoverObjectTracking, setHoverObjectTracking] = useState(false);
 
-    const paraFontSize = isMobile ? '12px' : '16px';
-    const projFontSize = isMobile ? '18px' : '20px';
+    const paraFontSize = isMobile ? '14px' : '18px';
+    const projFontSize = isMobile ? '20px' : '22px';
 
     const expandProject = (project) => {
       // console.log(project);
@@ -61,7 +61,7 @@ function Projects({ isMobile }) {
           style={{color: '#005A43', textDecoration: (hoverObjectTracking ? 'underline' : 'none')}} 
           href='https://youtu.be/kiSOmFVfNpc?si=1e2ZvVVyoiFmsAyg'
           >object tracking
-          </a> in Vision OS
+          </a> in VisionOS
         </span>
       </div>
       { /* refhub.io */ }

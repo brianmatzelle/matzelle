@@ -9,8 +9,8 @@ import './Bio.css';
 export default function Bio() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
-  const paraFontSize = isMobile ? '16px' : '24px'; // 24px on desktop, 18px on mobile (767px)
-  const linkFontSize = isMobile ? '14px' : '18px'; // 18px on desktop, 14px on mobile (767px)
+  const paraFontSize = isMobile ? '18px' : '26px'; // 24px on desktop, 18px on mobile (767px)
+  const linkFontSize = isMobile ? '16px' : '20px'; // 18px on desktop, 14px on mobile (767px)
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -40,7 +40,7 @@ export default function Bio() {
       <h1
         style={{
           color: 'white',
-          fontSize: isMobile ? '28px' : '38px', // 48px on desktop, 36px on mobile (767px)
+          fontSize: isMobile ? '30px' : '40px', // 48px on desktop, 36px on mobile (767px)
           fontWeight: '400',
         }}
       >
