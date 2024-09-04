@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface ProjectsProps {
   isMobile: boolean;
 }
 
 function Projects({ isMobile }: ProjectsProps) {
-    const [hoverChat, setHoverChat] = useState<boolean>(false);
-    const [hoverLendaHand, setHoverLendaHand] = useState<boolean>(false);
-    const [hoverReactorSuite, setHoverReactorSuite] = useState<boolean>(false);
-    const [hoverAsdf, setHoverAsdf] = useState<boolean>(false);
-    const [hoverRefhub, setHoverRefhub] = useState<boolean>(false);
-    const [hoverObjectTracking, setHoverObjectTracking] = useState<boolean>(false);
 
     // Common class variables
     const linkColor: string = 'text-[#005A43]';
     const linkFontSize: string = isMobile ? 'text-xl' : 'text-2xl';
-    const linkBase: string = `${linkColor} ${linkFontSize} font-light pt-[1vh]`;
-    const spanBase: string = `text-white ${isMobile ? 'text-sm' : 'text-lg'} font-normal pt-[1vh]`;
+    const linkBase: string = `${linkColor} ${linkFontSize} font-light pt-[1vh] hover:underline`;
+    const spanBase: string = `text-white ${isMobile ? 'text-sm pr-[5vw]' : 'text-lg'} font-normal pt-[1vh]`;
 
     return (
     <div id="projects" className={`bg-[#1A1A1A] pl-[5vw] pr-[${isMobile ? '15vw' : '5vw'}] pb-[2vh]`}>
@@ -25,19 +19,15 @@ function Projects({ isMobile }: ProjectsProps) {
       { /* refhub.io */ }
       <div className="mb-[3px]">
         <a
-        onMouseOver={() => {setHoverRefhub(true);}}
-        onMouseLeave={() => {setHoverRefhub(false);}}
         target='_blank'
         rel='noreferrer'
         href='https://www.refhub.io'
-        className={`${linkBase} ${hoverRefhub ? 'underline' : 'no-underline'}`}>
+        className={`${linkBase}`}>
           - RefHub.io
         </a>
         <span className={spanBase}>
           &nbsp; 🧊 file sharing site for .referenceobjects - used for <a 
-          onMouseOver={() => {setHoverObjectTracking(true)}} 
-          onMouseLeave={() => {setHoverObjectTracking(false)}}
-          className={`${linkColor} ${hoverObjectTracking ? 'underline' : 'no-underline'}`}
+          className={`${linkColor} hover:underline`}
           href='https://youtu.be/kiSOmFVfNpc?si=1e2ZvVVyoiFmsAyg'
           >object tracking
           </a> in VisionOS
@@ -48,12 +38,10 @@ function Projects({ isMobile }: ProjectsProps) {
       { /* asdf */ }
       <div className="mb-[3px]">
         <a
-        onMouseOver={() => {setHoverAsdf(true);}}
-        onMouseLeave={() => {setHoverAsdf(false);}}
         target='_blank'
         rel='noreferrer'
         href='https://asdf.matzelle.co'
-        className={`${linkBase} ${hoverAsdf ? 'underline' : 'no-underline'}`}>
+        className={`${linkBase}`}>
           - asdfType
         </a>
         <span className={spanBase}>
@@ -65,12 +53,10 @@ function Projects({ isMobile }: ProjectsProps) {
       {/* Chat.tv */}
       <div className="mb-[3px]">
         <a
-        onMouseOver={() => {setHoverChat(true);}}
-        onMouseLeave={() => {setHoverChat(false);}} 
         href='https://github.com/brianmatzelle/Chat.tv/releases'
         target='_blank'
         rel='noreferrer' 
-        className={`${linkBase} ${hoverChat ? 'underline' : 'no-underline'}`}>
+        className={`${linkBase}`}>
           - AI Twitch.tv Chat
         </a>
       </div>
@@ -82,9 +68,7 @@ function Projects({ isMobile }: ProjectsProps) {
           href='https://devpost.com/software/lendahand-oq1snb'
           target='_blank'
           rel='noreferrer'
-          onMouseOver={() => {setHoverLendaHand(true);}}
-          onMouseLeave={() => {setHoverLendaHand(false);}}
-          className={`${linkBase} ${hoverLendaHand ? 'underline' : 'no-underline'} pr-[1vw]`}>
+          className={`${linkBase}`}>
             - LendaHand
           </a>
           <span className={spanBase}>
@@ -99,9 +83,7 @@ function Projects({ isMobile }: ProjectsProps) {
         href='https://suite.matzelle.co/'
         target='_blank'
         rel='noreferrer'
-        onMouseOver={() => {setHoverReactorSuite(true);}}
-        onMouseLeave={() => {setHoverReactorSuite(false);}}
-        className={`${linkBase} ${hoverReactorSuite ? 'underline' : 'no-underline'} pr-[1vw]`}>
+        className={`${linkBase}`}>
           - Reactor Suite
         </a>
         <span className={spanBase}>
