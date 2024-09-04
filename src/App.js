@@ -6,7 +6,7 @@ import AnimatedCursor from "react-animated-cursor";
 import ChatDemo from './ChatDemo.js';
 // import Model from './Model.js';
 import './App.css';
-import HuggingFace from './HuggingFace.tsx';
+import HuggingFace from './components/HuggingFace.tsx';
 
 function App() {
   // track window width

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from './components/ui/link.tsx';
+import { Link } from './ui/link.tsx';
 
 const links = {
     huggingface: 'https://huggingface.co/BinghamtonUniversity',
