@@ -14,7 +14,7 @@ function Projects({ isMobile }: ProjectsProps) {
     const projectBase: string = `mb-[3px]`;
 
     return (
-    <div id="projects" className={`bg-[#1A1A1A] px-[5vw] pr-[${isMobile ? '15vw' : '5vw'}] pb-[2vh]`}>
+    <div id="projects" className={`px-[5vw] pr-[${isMobile ? '15vw' : '5vw'}] pb-[2vh] `}>
       <h2 className={`mt-0 mb-[10px] text-white font-normal ${isMobile ? 'text-2xl' : 'text-3xl'}`}>Projects</h2>
 
       { /* refhub.io */ }
