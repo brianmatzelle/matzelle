@@ -89,7 +89,7 @@ function App() {
       }}
       >
         <Projects isMobile={isMobile}/>
-        <ChatDemo isMobile={isMobile} />
+        {/* <ChatDemo isMobile={isMobile} /> */}
       </div>      
     </div>
   );
