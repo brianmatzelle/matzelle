@@ -64,8 +64,8 @@ export default function Bio(): JSX.Element {
 
       <GitHub linkFontSize={isMobile ? '16px' : '20px'} />
       <LinkedIn linkFontSize={isMobile ? '16px' : '20px'} />
-      {/* <SoundCloud linkFontSize={isMobile ? '16px' : '20px'} />
-      <Resume linkFontSize={isMobile ? '16px' : '20px'}/> */}
+      <SoundCloud linkFontSize={isMobile ? '16px' : '20px'} />
+      {/* <Resume linkFontSize={isMobile ? '16px' : '20px'}/> */}
     </div>
   );
 }
